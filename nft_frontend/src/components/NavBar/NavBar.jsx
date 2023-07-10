@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <h2>DR</h2>
+        <h2>NFT App</h2>
       </div>
       <div className="navbar-links-buttons">
         <div className="navbar-links">
