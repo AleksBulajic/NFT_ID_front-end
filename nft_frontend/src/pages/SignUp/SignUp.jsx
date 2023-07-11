@@ -1,35 +1,24 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import './signup.css';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSignUp = async (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post('/api/signup/', {
-        username,
-        email,
-        password,
-      });
+    // Perform signup logic here
 
-      // Handle successful sign-up response here
-      console.log(response.data);
-
-      // Redirect the user to a different page or perform other actions
-    } catch (error) {
-      // Handle sign-up error here
-      console.error('Sign-up failed:', error);
-    }
+    // Redirect the user to a different page or perform other actions
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <h2>Sign Up</h2>
-      <form onSubmit={handleSignUp}>
+      <form className="signup-form">
         <input
           type="text"
           placeholder="Username"
@@ -49,6 +38,13 @@ const SignUp = () => {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
         <button type="submit">Sign Up</button>
