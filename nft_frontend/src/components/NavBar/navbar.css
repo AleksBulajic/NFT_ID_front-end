@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color:rgb#2f1c2c;
+  background-color:#2f1c2c;
   color: white;
 }
 
@@ -19,9 +19,7 @@
   margin-left: auto;  
   transition: background-color 0.3s ease;
 }
-.navbar-links-buttons:hover {
-  background-color: rgb(22, 58, 235);
-}
+
 .navbar-links ul {
   display: flex;
   list-style: none;
@@ -42,20 +40,42 @@
 
 .navbar-button {
   margin-left: 10px;
-  padding: 10px 20px;
+  padding: 6px 15px;
   font-size: 16px;
-  color: #000000;
-  background-color: #e4e4e4;
+  color: #faf4f4;
+  background-color: #6a4c93;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 .navbar-button:hover {
-  background-color: rgb(22, 58, 235);
+  background-color: #926dc6;
 }
 
 .navbar-button:last-child {
   margin-right: 0;
   margin-right: 50px;
 }
+/* navbar.css */
+
+.navbar-heading-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .navbar-heading-link {
+    color: white;
+    text-decoration: none;
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+
+  .navbar-links a.active-link {
+    color: #3a2e2e; /* Slightly darker color for active link */
+  }
+  
