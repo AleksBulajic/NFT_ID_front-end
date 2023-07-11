@@ -1,0 +1,55 @@
+/* CreateNFT.css */
+
+body {
+    background-color: #2f1c2c;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .button, .file-input-button {
+    background-color: #6a4c93;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover, .file-input-button:hover {
+    background-color: #926dc6;
+  }
+  
+  .file-input {
+    display: none;
+  }
+  
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .webcam-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .webcam-controls {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: -50px;
+  }
+  

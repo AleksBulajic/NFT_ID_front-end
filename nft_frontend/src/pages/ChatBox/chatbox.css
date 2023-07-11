@@ -1,0 +1,80 @@
+/* nutritionamigo.css */
+
+.chat-widget {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+  
+  .chat-container {
+    width: 420px;
+    max-height: 500px;
+    overflow-y: auto;
+    background-color: #4e3263; 
+    color: #ffffff; 
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .chat-messages {
+    padding: 16px;
+  }
+  .chat-prompt {
+    padding: 16px;
+    border-bottom: 1px solid #ffffff; 
+    }
+    .chat-messages {
+        padding: 16px;
+        overflow-y: auto; /* Enable vertical scrolling for chat messages */
+      }
+      
+  
+  .chat-message-container {
+    margin-bottom: 12px;
+    
+  }
+  
+  .chat-message-header {
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .chat-input-container {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #352548; /* Darker purple for input container */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  
+  #chat-input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #533c6f; /* Dark purple for input field */
+    color: #ffffff; /* White text color */
+    outline: none;
+  }
+  
+  #chat-send {
+    margin-left: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #6d4e87; /* Purple button background color */
+    color: #ffffff; /* White text color */
+    cursor: pointer;
+    outline: none;
+  }
+  
+  #loading {
+    padding: 8px;
+    text-align: center;
+    background-color: #352548; /* Darker purple for loading indicator */
+    color: #ffffff; /* White text color */
+  }
+  
