@@ -2,12 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import './chatbox.css';
 
 const ChatBox = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);  
   const [introMessageSent, setIntroMessageSent] = useState(false);
   const [chatMessages, setChatMessages] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const chatInputRef = useRef(null);
 
-  const OPENAI_API_KEY = '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';
+  const OPENAI_API_KEY = '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';
   const OPENAI_API_ENDPOINT = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
 
   const addChatMessage = (sender, message) => {
@@ -74,39 +75,54 @@ const ChatBox = () => {
     }
   };
 
-  useEffect(() => {
-    addChatMessage('FinTech Guru', "Hello! I am the FinTech Guru! Your guide on all things finance, nft, and crypto. I'm constantly improving and for that reason, from time to time, I may not provide a very accurate answer! Please enter your message below.");
-    setIntroMessageSent(true);
-    chatInputRef.current.focus();
-  }, []);
 
-  return (
-    <div className="chat-widget">
-        <h1 className = "page-title">Chatbox</h1>
-      <div className="chat-container">
-        <div className="chat-messages">
-          {chatMessages.map((message, index) => (
-            <div className="chat-message-container" key={index}>
-              <div className="chat-message-header">{message.sender}:</div>
-              <div className="chat-message-body">{message.message}</div>
-            </div>
-          ))}
+
+  const handleChatOpenClose = () => {
+    setIsChatOpen(!isChatOpen);
+  };
+  
+  useEffect(() => {
+    if (isChatOpen && chatInputRef.current) {
+      // The chatbox is being opened, so focus on the chat input field
+      chatInputRef.current.focus();
+    }
+  }, [isChatOpen]);
+  
+
+
+ return (
+  <div>
+    <button onClick={handleChatOpenClose}>
+      {isChatOpen ? 'Close Chat' : 'Open Chat'}
+    </button>
+    {isChatOpen && (
+      <div className="chat-widget">
+        <h1 className="page-title">Chatbox</h1>
+        <div className="chat-container">
+          <div className="chat-messages">
+            {chatMessages.map((message, index) => (
+              <div className="chat-message-container" key={index}>
+                <div className="chat-message-header">{message.sender}:</div>
+                <div className="chat-message-body">{message.message}</div>
+              </div>
+            ))}
+          </div>
+          <div className="chat-input-container">
+            <input
+              id="chat-input"
+              ref={chatInputRef}
+              type="text"
+              onKeyDown={handleUserInput}
+            />
+            <button id="chat-send" onClick={handleSendButtonClick}>
+              Send
+            </button>
+          </div>
         </div>
-        <div className="chat-input-container">
-          <input
-            id="chat-input"
-            ref={chatInputRef}
-            type="text"
-            onKeyDown={handleUserInput}
-          />
-          <button id="chat-send" onClick={handleSendButtonClick}>
-            Send
-          </button>
-        </div>
+        {isLoading && <div id="loading">Loading...</div>}
       </div>
-      {isLoading && <div id="loading">Loading...</div>}
-    </div>
-  );
-};
+    )}
+  </div>
+)};
 
 export default ChatBox;
