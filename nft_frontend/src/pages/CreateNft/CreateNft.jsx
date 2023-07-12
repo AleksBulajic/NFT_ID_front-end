@@ -1,67 +1,36 @@
-import React, { useRef, useState } from 'react';
-import Webcam from 'react-webcam';
+import React, { useState } from 'react';
 import './createnft.css';
+// import SignUp from '../SignUp';
+import ImageCapture from './Button.jsx';
 
-const CreateNFT = () => {
-  const webcamRef = useRef(null);
-  const fileInputRef = useRef(null);
-  const [imageSrc, setImageSrc] = useState(null);
-  const [showCamera, setShowCamera] = useState(false);
+const CreateNft = () => {
+//   const [showSignUp, setShowSignUp] = useState(false);
 
-  const handleCapture = () => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    setImageSrc(imageSrc);
-    setShowCamera(false);
-  };
+//   const handleSignUpClick = (e) => {
+//     e.preventDefault();
+//     setShowSignUp(!showSignUp);
+//   };
 
-  const handleUpload = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+  return (
+    <div className="create-nft-container">
+        <>
+          <h2>Create ID</h2>
+          <form className="create-nft-form">
+            <input type="text" placeholder="First Name" required />
+            <input type="text" placeholder="Last Name" required />
+            <ImageCapture />
+            <textarea placeholder="Description" required></textarea>
+            <input type="text" placeholder="NFT Token ID" required />
+            <input type="text" placeholder="Address" required />
+            <input type="text" placeholder="Country" required />
+            <input type="text" placeholder="Date of Birth" required />
+            <input type="text" placeholder="Eye Color" required />
+            <button type="submit">Create</button>
+          </form>
+        </>
 
-    reader.onloadend = () => {
-      setImageSrc(reader.result);
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleRemove = () => {
-    setImageSrc(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = null;
-    }
-  };
-
-    return (
-    <div className="center-content">
-      <button className="button" onClick={() => setShowCamera(true)}>Open Camera</button>
-      {showCamera && (
-        <div className="webcam-container">
-          <Webcam
-            audio={false}
-            ref={webcamRef}
-            screenshotFormat="image/jpeg"
-          />
-          <div className="webcam-controls">
-            <button className="button" onClick={handleCapture}>Capture photo</button>
-            <button className="button" onClick={() => setShowCamera(false)}>Close Camera</button>
-          </div>
-        </div>
-      )}
-      <label className="button file-input-button">
-        Choose File
-        <input className="file-input" type="file" accept="image/*" onChange={handleUpload} ref={fileInputRef} />
-      </label>
-      {imageSrc && (
-        <div className="image-container">
-          <img src={imageSrc} alt="NFT" style={{ width: '100px', height: '100px' }} />
-          <button className="button" onClick={handleRemove}>Remove</button>
-        </div>
-      )}
     </div>
   );
 };
 
-export default CreateNFT;
+export default CreateNft;
