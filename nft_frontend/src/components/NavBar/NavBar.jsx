@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ onAboutOpen }) => {
   const handleContactClick = () => {
     const emailUrl = "mailto:devin.rodriguez.p8@gmail.com";
     const emailWindow = window.open(emailUrl, "_blank");
@@ -30,6 +30,12 @@ const Navbar = () => {
       // Handle this case, e.g., display an error message
     }
   };
+  const handleAboutClick = (event) => {
+    event.preventDefault(); // Prevent navigation
+    onAboutOpen(); // Open the about modal
+  };
+
+
   return (
     <nav className="navbar">
       <div className="navbar-brand">
@@ -58,8 +64,12 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/chatbox" activeClassName="active-link">
-                Chatbox
+              <NavLink
+                to="/about"
+                activeClassName="active-link"
+                onClick={handleAboutClick}
+              >
+                About
               </NavLink>
             </li>
             <li>

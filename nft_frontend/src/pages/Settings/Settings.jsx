@@ -14,25 +14,13 @@
 
 // Settings.js
 import React, { useState } from 'react';
-import AboutModal from './AboutModal';
+import AboutModal from '../../components/About/AboutModal';
 
 const Settings = () => {
-  const [isAboutModalOpen, setAboutModalOpen] = useState(false);
-
-  const handleAboutClick = () => {
-    setAboutModalOpen(true);
-  };
-
-  const handleAboutModalClose = () => {
-    setAboutModalOpen(false);
-  };
 
   return (
     <div>
-      <button onClick={handleAboutClick} style={{ background: 'none', border: 'none', color: '#ffffff' }}>
-        About
-      </button>
-      <AboutModal isOpen={isAboutModalOpen} onRequestClose={handleAboutModalClose} />
+      <h1 className="page-title">Settings</h1>
     </div>
   );
 };
