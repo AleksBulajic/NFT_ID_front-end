@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './signup.css';
+import LandingScreen from '../LandingScreen/LandingScreen';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -49,6 +51,9 @@ const SignUp = () => {
         />
         <button type="submit">Sign Up</button>
       </form>
+      <div className="signin-text">
+        Already have an account? Click <Link to="/">here</Link> to sign in.
+      </div>
     </div>
   );
 };

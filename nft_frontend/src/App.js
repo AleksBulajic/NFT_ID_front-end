@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import ChatBox from "./pages/ChatBox/ChatBox";
 import CreateNft from "./pages/CreateNft/CreateNft";
 import Settings from "./pages/Settings/Settings";
+import LandingScreen from "./pages/LandingScreen/LandingScreen";
 import SignUp from "./pages/SignUp/SignUp";
 
 const App = () => {
@@ -13,12 +14,12 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<LandingScreen />} />
         <Route path="/home" element={<Home />} />
         <Route path="/create" element={<CreateNft />} />
         <Route path="/chatbox" element={<ChatBox />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/signup" element={SignUp} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   );

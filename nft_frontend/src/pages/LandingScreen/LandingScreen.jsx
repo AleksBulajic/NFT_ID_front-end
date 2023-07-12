@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './landingscreen.css';
 import SignUp from '../SignUp/SignUp';
-import { useLocation } from 'react-router-dom'
-import './landingscreen.css'
 
 const SignIn = () => {
   const [showSignUp, setShowSignUp] = useState(false);
@@ -25,10 +25,7 @@ const SignIn = () => {
           </form>
           <span className="goTo">
             Don't have an account? Click{' '}
-            <a href="/signup" onClick={handleSignUpClick}>
-              here
-            </a>{' '}
-            to sign up instead.
+            <Link to="/signup">here</Link> to sign up instead.
           </span>
         </>
       )}
