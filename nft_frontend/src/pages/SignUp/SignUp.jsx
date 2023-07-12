@@ -11,8 +11,12 @@ const SignUp = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-
     // Perform signup logic here
+    try{
+       
+    }catch(error){
+      console.error("Unable to sign up: ", error);
+    }
 
     // Redirect the user to a different page or perform other actions
   };
