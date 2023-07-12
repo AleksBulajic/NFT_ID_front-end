@@ -28,6 +28,7 @@ const CreateNft = () => {
             <button type="submit">Create</button>
           </form>
         </>
+
     </div>
   );
 };
