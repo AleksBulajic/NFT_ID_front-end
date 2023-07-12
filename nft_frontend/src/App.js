@@ -6,7 +6,10 @@ import Home from "./pages/Home/Home";
 //import ChatBox from "./pages/ChatBox/ChatBox";
 import CreateNft from "./pages/CreateNft/CreateNft";
 import Settings from "./pages/Settings/Settings";
+import LandingScreen from "./pages/LandingScreen/LandingScreen";
+import SignUp from "./pages/SignUp/SignUp";
 import AboutModal from "./components/About/AboutModal";
+
 
 const App = () => {
   const [isAboutModalOpen, setAboutModalOpen] = useState(false);
@@ -23,10 +26,11 @@ const App = () => {
     <Router>
       <Navbar onAboutOpen={handleAboutOpen} />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<LandingScreen />} />
         <Route path="/home" element={<Home />} />
         <Route path="/create" element={<CreateNft />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
       <AboutModal isOpen={isAboutModalOpen} onRequestClose={handleAboutClose} />
     </Router>
