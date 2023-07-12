@@ -23,17 +23,17 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <>
       <Navbar onAboutOpen={handleAboutOpen} />
       <Routes>
-        <Route exact path="/" element={<LandingScreen />} />
+        <Route path="/" element={<LandingScreen />} />
         <Route path="/home" element={<Home />} />
         <Route path="/create" element={<CreateNft />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
       <AboutModal isOpen={isAboutModalOpen} onRequestClose={handleAboutClose} />
-    </Router>
+     </>
   );
 };
 
