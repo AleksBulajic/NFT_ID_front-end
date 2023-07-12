@@ -1,6 +1,11 @@
+
 import React, { useState } from 'react';
 import SignUp from '../SignUp/SignUp';
 import { useLocation } from 'react-router-dom'
+
+import React from 'react'
+import IdCard from '../../components/IdCard/IdCard'
+
 import './home.css'
 
 const SignIn = () => {
@@ -32,6 +37,10 @@ const SignIn = () => {
           </span>
         </>
       )}
+    <div className = "page-container">
+        <h1 className = "page-title">Hello and Welcome!</h1>
+        <IdCard />
+
     </div>
   );
 };

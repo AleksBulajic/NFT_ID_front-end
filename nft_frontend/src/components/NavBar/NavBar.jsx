@@ -1,9 +1,9 @@
 // Navbar.js
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ onAboutOpen }) => {
   const handleContactClick = () => {
     const emailUrl = "mailto:devin.rodriguez.p8@gmail.com";
     const emailWindow = window.open(emailUrl, "_blank");
@@ -30,32 +30,59 @@ const Navbar = () => {
       // Handle this case, e.g., display an error message
     }
   };
+  const handleAboutClick = (event) => {
+    event.preventDefault(); // Prevent navigation
+    onAboutOpen(); // Open the about modal
+  };
+
+
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <h2>NFT App</h2>
+        <button className="navbar-heading-button">
+          <Link to="/home" className="navbar-heading-link">
+            NFT App
+          </Link>
+        </button>
       </div>
       <div className="navbar-links-buttons">
         <div className="navbar-links">
           <ul>
             <li>
-              <Link to="/home">Home</Link>
+              <NavLink
+                to="/home"
+                activeStyle={{
+                  color: "#333333",
+                }}
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/create">Create</Link>
+              <NavLink to="/create" activeClassName="active-link">
+                Create
+              </NavLink>
             </li>
             <li>
-              <Link to="/chatbox">Chatbox</Link>
+              <NavLink
+                to="/about"
+                activeClassName="active-link"
+                onClick={handleAboutClick}
+              >
+                About
+              </NavLink>
             </li>
             <li>
-                <Link to="/settings">Settings</Link>
+              <NavLink to="/settings" activeClassName="active-link">
+                Settings
+              </NavLink>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-buttons">
         <button className="navbar-button" onClick={handleContactClick}>
-          Contact
+          Sign Out
         </button>
       </div>
     </nav>
