@@ -51,7 +51,7 @@ const Navbar = ({ onAboutOpen }) => {
             <li>
               <NavLink
                 to="/home"
-                activeStyle={{
+                activestyle={{
                   color: "#333333",
                 }}
               >
@@ -59,21 +59,21 @@ const Navbar = ({ onAboutOpen }) => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/create" activeClassName="active-link">
+              <NavLink to="/create" activeclassname="active-link">
                 Create
               </NavLink>
             </li>
             <li>
               <NavLink
                 to="/about"
-                activeClassName="active-link"
+                activeclassname="active-link"
                 onClick={handleAboutClick}
               >
                 About
               </NavLink>
             </li>
             <li>
-              <NavLink to="/settings" activeClassName="active-link">
+              <NavLink to="/settings" activeclassname="active-link">
                 Settings
               </NavLink>
             </li>
