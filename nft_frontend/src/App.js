@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/NavBar/NavBar";
 import Home from "./pages/Home/Home";
-import ChatBox from "./pages/ChatBox/ChatBox";
+import ChatBox from "./components/ChatBox/ChatBox";
 import CreateNft from "./pages/CreateNft/CreateNft";
 import Settings from "./pages/Settings/Settings";
 import LandingScreen from "./pages/LandingScreen/LandingScreen";

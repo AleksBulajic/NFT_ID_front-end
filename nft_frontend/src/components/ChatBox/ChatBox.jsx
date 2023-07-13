@@ -88,7 +88,6 @@ const ChatBox = () => {
 
   useEffect(() => {
     if (isChatOpen && chatInputRef.current) {
-      // The chatbox is being opened, so focus on the chat input field
       chatInputRef.current.focus();
     }
   }, [isChatOpen]);
