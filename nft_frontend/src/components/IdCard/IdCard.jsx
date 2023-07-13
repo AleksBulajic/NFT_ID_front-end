@@ -7,7 +7,9 @@ import { AuthContext } from "../../auth/AuthContextComponent";
 
 const IdCard = () => {
   const { user } = useContext(AuthContext);
+
   const { id } = useParams();
+
   const [identity, setIdentity] = useState(null);
   const token = localStorage.getItem("token");
   useEffect(() => {
@@ -19,7 +21,6 @@ const IdCard = () => {
           {
             headers: {
               Authorization: `Token ${token}`,
-              "Content-Type": "multipart/form-data",
             },
           }
         );
@@ -29,7 +30,6 @@ const IdCard = () => {
         console.error(error);
       }
     };
-
     fetchIdentity();
   }, [id]);
 
