@@ -11,5 +11,8 @@
   .home-title {
     font-size: 45px;
   }
+  .body, .home-container {
+    position: relative;
+  }
   
   
