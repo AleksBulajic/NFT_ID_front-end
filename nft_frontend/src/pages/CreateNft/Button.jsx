@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
-import Webcam from 'react-webcam';
-import './createnft.css';
+import React, { useRef, useState } from "react";
+import Webcam from "react-webcam";
+import "./createnft.css";
 
-const ImageCapture = () => {
+const ImageCapture = ({ onSetPhoto }) => {
   const webcamRef = useRef(null);
   const fileInputRef = useRef(null);
   const [imageSrc, setImageSrc] = useState(null);
@@ -11,6 +11,7 @@ const ImageCapture = () => {
   const handleCapture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImageSrc(imageSrc);
+    onSetPhoto(imageSrc);
     setShowCamera(false);
   };
 
@@ -20,6 +21,7 @@ const ImageCapture = () => {
 
     reader.onloadend = () => {
       setImageSrc(reader.result);
+      onSetPhoto(file); // Pass the file object to onSetPhoto
     };
 
     if (file) {
@@ -29,6 +31,7 @@ const ImageCapture = () => {
 
   const handleRemove = () => {
     setImageSrc(null);
+    onSetPhoto(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = null;
     }
@@ -44,10 +47,19 @@ const ImageCapture = () => {
           <button onClick={() => setShowCamera(false)}>Close Camera</button>
         </div>
       )}
-      <input type="file" accept="image/*" onChange={handleUpload} ref={fileInputRef} />
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleUpload}
+        ref={fileInputRef}
+      />
       {imageSrc && (
         <div>
-          <img src={imageSrc} alt="NFT" style={{ width: '100px', height: '100px' }} />
+          <img
+            src={imageSrc}
+            alt="NFT"
+            style={{ width: "100px", height: "100px" }}
+          />
           <button onClick={handleRemove}>Remove</button>
         </div>
       )}
