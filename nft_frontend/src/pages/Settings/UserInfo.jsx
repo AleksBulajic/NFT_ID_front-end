@@ -1,47 +1,105 @@
-import React from "react";
-import './settings.css';
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import "./settings.css";
+import { AuthContext } from "../../auth/AuthContextComponent";
 
-const UserInfo = ({ form, handleChange, handleSubmit }) => {
+const UserInfo = () => {
+  const { user } = useContext(AuthContext);
+
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
+  const [walletAddress, setWalletAddress] = useState(
+    user.userprofile?.metamask_wallet_address || "" // Use conditional chaining to handle undefined user.userprofile
+  );
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const token = localStorage.getItem("token");
+
+    try {
+      const requestData = {
+        username,
+        email,
+        password,
+        userprofile: {
+          metamask_wallet_address: walletAddress,
+        },
+      };
+      console.log("Request Data:", requestData);
+
+      const response = await axios.put(
+        `http://127.0.0.1:8000/users/${user.id}/`,
+        requestData,
+        {
+          headers: {
+            Authorization: `token ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("Response Data:", response.data);
+      // Handle successful update
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error
+    }
+  };
+
   return (
     <div id="user-info" className="user-container">
-      <h2 className ="form-header">User Information</h2>
+      <h2 className="form-header">Update User Information</h2>
       <form className="user-form" onSubmit={handleSubmit}>
-        <label>
+        <label className="user-form-label">
           Username:
           <input
+            className="user-form-input"
             type="text"
-            name="username"
-            value={form.username}
-            onChange={handleChange}
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className="user-form-label">
           Email:
           <input
+            className="user-form-input"
             type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            required
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label>
+        <label className="user-form-label">
           Password:
           <input
+            className="user-form-input"
             type="password"
-            name="password"
-            value={form.password}
-            onChange={handleChange}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
-        <button type="submit">Update User Info</button>
+        <label className="user-form-label">
+          Wallet Address:
+          <input
+            className="user-form-input"
+            type="text"
+            placeholder="Wallet Address"
+            value={walletAddress}
+            onChange={(e) => setWalletAddress(e.target.value)}
+            required
+          />
+        </label>
+        <button className="user-form-button" type="submit">
+          Update
+        </button>
       </form>
     </div>
   );
 };
 
 export default UserInfo;
-
-
