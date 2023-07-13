@@ -40,6 +40,7 @@ const App = () => {
 
   return (
   <>
+  
       <Navbar onAboutOpen={handleAboutOpen} />
      <AnimatedRoutes>
         <Route path="/" element={<LandingScreen />} />
