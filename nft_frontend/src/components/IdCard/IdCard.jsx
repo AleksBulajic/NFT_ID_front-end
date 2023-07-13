@@ -15,7 +15,7 @@ const IdCard = () => {
     const fetchIdentity = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000//api/identity/${identity.id}`,
+          `http://127.0.0.1:8000/api/identity/${user.id}`,
           {
             headers: {
               Authorization: `Token ${token}`,
@@ -31,7 +31,6 @@ const IdCard = () => {
     };
 
     fetchIdentity();
- 
   }, [id]);
 
   const [props, set] = useSpring(() => ({
