@@ -4,7 +4,7 @@ import './settings.css';
 const UserInfo = ({ form, handleChange, handleSubmit }) => {
   return (
     <div id="user-info" className="user-container">
-      <h2>User Information</h2>
+      <h2 className ="form-header">User Information</h2>
       <form className="user-form" onSubmit={handleSubmit}>
         <label>
           Username:
@@ -43,3 +43,5 @@ const UserInfo = ({ form, handleChange, handleSubmit }) => {
 };
 
 export default UserInfo;
+
+

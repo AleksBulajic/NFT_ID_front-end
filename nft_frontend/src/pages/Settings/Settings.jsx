@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import './settings.css';
 import Sidebar from './Sidebar';
 import UserInfo from './UserInfo';
 import IdentityInfo from './IdentityInfo';
+import CustomizeTheme from './CustomizeTheme';
+import QandA from './QandA';
+import './settings.css';
 
 const Settings = () => {
     const [userForm, setUserForm] = useState({
@@ -69,6 +71,9 @@ const Settings = () => {
                         handleChange={handleIdFormChange}
                         handleSubmit={handleIdFormSubmit}
                     />}
+                    {currentSection === 'customize-theme' && <CustomizeTheme/>}
+                {currentSection === 'q-and-a' && <QandA />}
+
             </div>
         </div>
     );

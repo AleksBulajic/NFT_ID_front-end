@@ -17,7 +17,7 @@ const AboutModal = ({ isOpen, onRequestClose }) => {
       <p>
         NFTGems is a platform that allows you to manage your NFTs and wallet information in one place. 
         You can upload your NFTs, view them in your personal gallery, and share them with others. 
-        Stay tuned for more features!
+        Stay tuned for more features! To get started...
       </p>
       <button onClick={onRequestClose}>Close</button>
     </Modal>
