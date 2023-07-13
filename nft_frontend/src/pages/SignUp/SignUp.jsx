@@ -1,30 +1,44 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './signup.css';
-import LandingScreen from '../LandingScreen/LandingScreen';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./signup.css";
+import { signup } from "../../auth/validToken";
 
 const SignUp = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [walletAddress, setWalletAddress] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // Perform signup logic here
-    try{
-       
-    }catch(error){
-      console.error("Unable to sign up: ", error);
-    }
+    try {
+      const data = {
+        username,
+        email,
+        password,
+        userprofile: { metamask_wallet_address: walletAddress },
+      };
+      console.log(data);
+      const response = await signup(username, password, data.userprofile);
+      console.log(response);
 
-    // Redirect the user to a different page or perform other actions
-  };
+      setMessage("Successfully created a new account! Redirecting...");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (error) {
+      console.error("Registration failed:", error);
+      setLoading(false);
+    }
+  }
 
   return (
     <div className="signup-container">
       <h2>Sign Up</h2>
-      <form className="signup-form">
+      <form className="signup-form" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Username"
@@ -47,10 +61,10 @@ const SignUp = () => {
           required
         />
         <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          type="text"
+          placeholder="walletAddress"
+          value={walletAddress}
+          onChange={(e) => setWalletAddress(e.target.value)}
           required
         />
         <button type="submit">Sign Up</button>

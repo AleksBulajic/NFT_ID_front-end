@@ -13,24 +13,28 @@ export default function AuthContextComponent({ children }) {
   // Check if a token exists in local storage and set the login state accordingly
   useState(() => {
     const token = localStorage.getItem(LOCALSTORAGE_KEY);
-    const userLocalStorage = localStorage.getItem('user');
+    // const userLocalStorage = localStorage.getItem("user");
     setIsLoggedIn(!!token);
 
     // If user data exists in local storage, set the user state
-    if (userLocalStorage) {
-      setUser(JSON.parse(userLocalStorage));
-    }
+    // if (userLocalStorage) {
+    //   setUser(JSON.parse(userLocalStorage));
+    // }
   });
+
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
 
   // Update the user data in local storage whenever the user state changes
   useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 
   // Function to handle user logout
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setIsLoggedIn(false);
   };
 

@@ -15,11 +15,12 @@ export async function signin(username, password) {
   return response.data;
 }
 
-export async function signup(username, password) {
+export async function signup(username, password, userprofile) {
   // Make a request to sign up a user
   const response = await base.post("register/", {
     username,
     password,
+    userprofile,
   });
 
   return response.data;
@@ -28,12 +29,12 @@ export async function signup(username, password) {
 export async function isTokenValid() {
   try {
     // Make a request to check if the token is valid
-    const response = await base.get('test-token/');
-    console.log('Response:', response.data);
+    const response = await base.get("test-token/");
+    console.log("Response:", response.data);
     return response.data;
   } catch (error) {
     // Handle error if token validation fails
-    console.error('Token validation failed:', error);
+    console.error("Token validation failed:", error);
     throw error;
   }
 }

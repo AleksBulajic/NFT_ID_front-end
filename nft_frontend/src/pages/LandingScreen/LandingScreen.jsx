@@ -10,8 +10,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [text, setText] = useState("");
   const [password, setPassword] = useState("");
-  const {setIsLoggedIn, setUser} = useContext(AuthContext);
-
+  const { setIsLoggedIn, setUser } = useContext(AuthContext);
 
   async function handleSubmit(e) {
     e.preventDefault();

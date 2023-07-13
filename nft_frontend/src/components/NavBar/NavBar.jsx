@@ -1,9 +1,14 @@
 // Navbar.js
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, {  useContext } from "react";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
+import { AuthContext } from "../../auth/AuthContextComponent";
 
 const Navbar = ({ onAboutOpen }) => {
+  const { handleLogout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+
   const handleContactClick = () => {
     const emailUrl = "mailto:devin.rodriguez.p8@gmail.com";
     const emailWindow = window.open(emailUrl, "_blank");
@@ -33,6 +38,12 @@ const Navbar = ({ onAboutOpen }) => {
   const handleAboutClick = (event) => {
     event.preventDefault(); // Prevent navigation
     onAboutOpen(); // Open the about modal
+  };
+
+  const handleClickSignout = () => {
+    handleLogout();
+    console.log("Successfully logged out");
+    navigate("/")
   };
 
 
@@ -81,7 +92,7 @@ const Navbar = ({ onAboutOpen }) => {
         </div>
       </div>
       <div className="navbar-buttons">
-        <button className="navbar-button" onClick={handleContactClick}>
+        <button className="navbar-button" onClick={ handleClickSignout}>
           Sign Out
         </button>
       </div>
