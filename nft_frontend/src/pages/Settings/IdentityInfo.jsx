@@ -5,7 +5,7 @@ import './settings.css';
 const IdentityInfo = ({ form, handleChange, handleSubmit }) => {
     return (
         <div id='identity-info' className='id-container'>
-            <h2>ID Information</h2>
+            <h2 className ="form-header">ID Information</h2>
             <form className="id-form" onSubmit={handleSubmit}>
                 <label>
                     First Name:
