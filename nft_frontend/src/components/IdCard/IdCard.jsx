@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSpring, animated } from 'react-spring';
 import './idcard.css';  
 
 const IdCard = () => {
@@ -10,16 +11,25 @@ const IdCard = () => {
     detail3: '72 inches'
   };
 
+  const [props, set] = useSpring(() => ({
+    scale: 1,
+  }));
+
   return (
-    <div className="idCard">
+    <animated.div 
+      className="idCard" 
+      style={props} 
+      onMouseEnter={() => set({ scale: 1.2 })} 
+      onMouseLeave={() => set({ scale: 1 })} 
+    >
       <h2>{user.name}</h2>
       <div className="id-card-content">
-      <img src={user.image} alt={user.name} />
-      <p>{user.detail1}</p>
-      <p>{user.detail2}</p>
-      <p>{user.detail3}</p>
-    </div>
-    </div>
+        <img src={user.image} alt={user.name} />
+        <p>{user.detail1}</p>
+        <p>{user.detail2}</p>
+        <p>{user.detail3}</p>
+      </div>
+    </animated.div>
   );
 };
 
