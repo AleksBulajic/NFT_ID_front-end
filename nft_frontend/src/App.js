@@ -39,24 +39,18 @@ const App = () => {
   };
 
   return (
-    <div>
-      <Router>
-        <Navbar onAboutOpen={handleAboutOpen} />
-        <AnimatedRoutes>
-          <Route exact path="/" element={<LandingScreen />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/create" element={<CreateNft />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/signup" element={<SignUp />} />
-        </AnimatedRoutes>
-        <AboutModal
-          isOpen={isAboutModalOpen}
-          onRequestClose={handleAboutClose}
-        />
-      </Router>
-      <ChatBox />
-    </div>
-  );
+  <>
+      <Navbar onAboutOpen={handleAboutOpen} />
+     <AnimatedRoutes>
+        <Route path="/" element={<LandingScreen />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/create" element={<CreateNft />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/signup" element={<SignUp />} />
+     </AnimatedRoutes>
+      <AboutModal isOpen={isAboutModalOpen} onRequestClose={handleAboutClose} />
+       <ChatBox />
+    </>
 };
 
 export default App;
