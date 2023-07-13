@@ -51,6 +51,7 @@ const App = () => {
       <AboutModal isOpen={isAboutModalOpen} onRequestClose={handleAboutClose} />
        <ChatBox />
     </>
+  )
 };
 
 export default App;
