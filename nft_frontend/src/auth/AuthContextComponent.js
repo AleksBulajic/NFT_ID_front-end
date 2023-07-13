@@ -22,9 +22,9 @@ export default function AuthContextComponent({ children }) {
     // }
   });
 
-  useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(user));
-  }, [user]);
+  // useEffect(() => {
+  //   localStorage.setItem("user", JSON.stringify(user));
+  // }, [user]);
 
   // Update the user data in local storage whenever the user state changes
   useEffect(() => {
