@@ -7,7 +7,7 @@
 }
 
 .settings-sidebar {
-    width: 24%;
+    width: 20%;
     background-color: #f8f9fa;
     padding: 2rem;
     height: 100vh;
@@ -98,13 +98,14 @@
     color: rgb(223, 221, 221);
    margin-top: 20px;
    margin-left: -15px;
+   font-size: 20px;
 }
 .form-header {
     color: rgb(223, 221, 221);
 }
 .sidebar-header {
     color: rgb(223, 221, 221);
-    font-size: 35px;
+    font-size: 30px;
     margin-top: 1px;
     margin-left: -20px;
 }
