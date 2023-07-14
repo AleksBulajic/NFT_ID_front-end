@@ -1,7 +1,7 @@
 import React from "react";
 import "./settings.css";
 
-const Sidebar = ({ onLinkClick, onDeleteAccount }) => {
+const Sidebar = ({ onLinkClick, DeleteAccount }) => {
   return (
     <div className="settings-sidebar">
       <h2 className="sidebar-header">Settings</h2>
@@ -39,7 +39,10 @@ const Sidebar = ({ onLinkClick, onDeleteAccount }) => {
           </button>
         </li>
         <li>
-          <button className="sidebar-link" onClick={() => onDeleteAccount()}>
+          <button
+            className="sidebar-link"
+            onClick={() => onLinkClick("delete-account")}
+          >
             Delete Account
           </button>
         </li>

@@ -5,6 +5,7 @@ import IdentityInfo from './IdentityInfo';
 import CustomizeTheme from './CustomizeTheme';
 import QandA from './QandA';
 import './settings.css';
+import DeleteAccount from './DeleteAccount';
 
 const Settings = () => {
     const [userForm, setUserForm] = useState({
@@ -73,6 +74,7 @@ const Settings = () => {
                     />}
                     {currentSection === 'customize-theme' && <CustomizeTheme/>}
                 {currentSection === 'q-and-a' && <QandA />}
+                {currentSection === 'delete-account' && <DeleteAccount/>}
 
             </div>
         </div>
