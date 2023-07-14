@@ -43,5 +43,3 @@ const UserInfo = ({ form, handleChange, handleSubmit }) => {
 };
 
 export default UserInfo;
-
-
