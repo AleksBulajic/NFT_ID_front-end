@@ -7,7 +7,6 @@ import { AuthContext } from "../../auth/AuthContextComponent";
 
 const IdCard = () => {
   const { user } = useContext(AuthContext);
-
   const { id } = useParams();
 
   const [identity, setIdentity] = useState(null);
