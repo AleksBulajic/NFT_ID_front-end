@@ -23,11 +23,11 @@ const Navbar = ({ onAboutOpen }) => {
 
 
 
-  // const connectWallet = async () => {
-  //   const walletRespons = await ConnectWallet();
-  //   setWalletStatus(walletRespons.status);
-  //   setWallet(walletRespons.address);
-  // };
+  const connectWallet = async () => {
+    const walletRespons = await ConnectWallet();
+    setWalletStatus(walletRespons.status);
+    setWallet(walletRespons.address);
+  };
 
   useEffect(() => {
     const checkConnectWallet = async () => {
