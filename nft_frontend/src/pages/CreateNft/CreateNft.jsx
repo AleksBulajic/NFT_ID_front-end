@@ -3,41 +3,8 @@ import axios from "axios";
 import "./createnft.css";
 import ImageCapture from "./Button.jsx";
 import { AuthContext } from "../../auth/AuthContextComponent";
-import { contract, mintNFT } from "../../web3/interfaice/NFTinterface";
-
-
-
 const CreateNft = () => {
-
-
-  async function mint() {
-    const nft = await mintNFT(address, uri);
-    setNFT(nft);
-  }
-
-  function handleAddress(event) {
-    setAddress(event.target.value);
-  }
-
-  function handleUri(event) {
-    setUri(event.target.value);
-  }
-  
   const { user } = useContext(AuthContext);
-
-
-  async function mint() {
-    const nft = await mintNFT(address, uri);
-    setNFT(nft);
-  }
-
-  function handleAddress(event) {
-    setAddress(event.target.value);
-  }
-
-  function handleUri(event) {
-    setUri(event.target.value);
-  }
 
   useEffect(() => {
     console.log(user);
@@ -53,10 +20,6 @@ const CreateNft = () => {
   const [dob, setDob] = useState("");
   const [eyeColor, setEyeColor] = useState("");
   const [photo, setPhoto] = useState(null);
-  // minting states
-  const [nft, setNFT] = useState("");
-  const [walletAddress, setWalletAddress] = useState("");
-  const [uri, setUri] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,7 +42,7 @@ const CreateNft = () => {
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8000/identities/`,
+        `http://127.0.0.1:8001/identities/`,
         formData,
         {
           headers: {
@@ -92,21 +55,19 @@ const CreateNft = () => {
     } catch (error) {
       console.error(error);
     }
-
-    mint()
   };
 
   return (
     <div className="create-nft-container">
       <h2>Create ID</h2>
       <form className="create-nft-form" onSubmit={handleSubmit}>
-        <input
+        {/* <input
           type="text"
-          placeholder="walletADdress"
-          value={walletAddress}
-          onChange={(e) => setWalletAddress(e.target.value)}
+          placeholder="userId"
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
           required
-        />
+        /> */}
         <input
           type="text"
           placeholder="First Name"
@@ -121,7 +82,14 @@ const CreateNft = () => {
           onChange={(e) => setLastName(e.target.value)}
           required
         />
-        <ImageCapture onSetPhoto={setPhoto} />
+        {/* <ImageCapture onSetPhoto={setPhoto} /> */}
+        <input
+          type="text"
+          placeholder="Photo URL"
+          value={photo}
+          onChange={(e) => setPhoto(e.target.value)}
+          required
+        />
         <textarea
           placeholder="Description"
           value={description}

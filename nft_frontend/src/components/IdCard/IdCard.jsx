@@ -16,7 +16,7 @@ const IdCard = () => {
     const fetchIdentity = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/api/identity/`,
+          `http://127.0.0.1:8001/api/identity/`,
           {
             headers: {
               Authorization: `Token ${token}`,
@@ -28,7 +28,9 @@ const IdCard = () => {
           if (data.user === user.id) {
             setIdentity(data);
           }
+          console.log("this is data.user", data.user)
         });
+        
 
         console.log("identity:");
         console.log(identity);
