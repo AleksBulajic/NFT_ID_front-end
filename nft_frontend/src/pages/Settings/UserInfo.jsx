@@ -11,7 +11,6 @@ const UserInfo = () => {
   const [walletAddress, setWalletAddress] = useState(
     user.userprofile?.metamask_wallet_address || "" // Use conditional chaining to handle undefined user.userprofile
   );
-  const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +21,6 @@ const UserInfo = () => {
       const requestData = {
         username,
         email,
-        password,
         userprofile: {
           metamask_wallet_address: walletAddress,
         },
@@ -70,17 +68,6 @@ const UserInfo = () => {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label className="user-form-label">
-          Password:
-          <input
-            className="user-form-input"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </label>
         <label className="user-form-label">
