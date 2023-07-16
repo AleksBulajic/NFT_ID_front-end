@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState, useContext } from "react";
 import {
   BrowserRouter as Router,
@@ -6,6 +7,11 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useTransition, animated } from "react-spring";
+
+import React, { useState, useContext } from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import { useTransition, animated } from 'react-spring';
+
 import Navbar from "./components/NavBar/NavBar";
 import Home from "./pages/Home/Home";
 import ChatBox from "./components/ChatBox/ChatBox";
@@ -14,8 +20,10 @@ import Settings from "./pages/Settings/Settings";
 import LandingScreen from "./pages/LandingScreen/LandingScreen";
 import SignUp from "./pages/SignUp/SignUp";
 import AboutModal from "./components/About/AboutModal";
+
 import NFT  from "./components/NFT/NFT";
 import { AuthContext } from "./auth/AuthContextComponent";
+
 
 
 const AnimatedRoutes = ({ children }) => {
@@ -34,10 +42,14 @@ const AnimatedRoutes = ({ children }) => {
   ));
 };
 
+// 
+
 const App = () => {
+
   const [walletAddress, setWalletAddress] = useState("")
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [showResults, setShowResults] = useState(false); 
+
 
   const [isAboutModalOpen, setAboutModalOpen] = useState(false);
 
