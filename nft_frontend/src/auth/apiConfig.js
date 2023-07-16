@@ -5,7 +5,7 @@ const LOCALSTORAGE_KEY = 'token'
 // Create a re-useable axios object, with our API as the baseURL
 const api = axios.create({
   baseURL: 'http://127.0.0.1:8000/',
-  Authorization : `token ${localStorage.getItem(LOCALSTORAGE_KEY)}`
+  Authorization : `Token ${localStorage.getItem(LOCALSTORAGE_KEY)}`
 })
 
 // Interceptors are axios functionality, that allows you to intercept requests and responses

@@ -15,12 +15,12 @@ export async function signin(username, password) {
   return response.data;
 }
 
-export async function signup(username, password, userprofile) {
+export async function signup(username, email, password) {
   // Make a request to sign up a user
   const response = await base.post("register/", {
     username,
+    email,
     password,
-    userprofile,
   });
 
   return response.data;
