@@ -5,11 +5,12 @@ import SignUp from "../SignUp/SignUp";
 import { signin } from "../../auth/validToken.js";
 import { AuthContext } from "../../auth/AuthContextComponent";
 
-const SignIn = () => {
+const LandingScreen = () => {
   const [showSignUp, setShowSignUp] = useState(false);
   const navigate = useNavigate();
   const [text, setText] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // New state for error message
   const { setIsLoggedIn, setUser } = useContext(AuthContext);
 
   async function handleSubmit(e) {
@@ -23,6 +24,7 @@ const SignIn = () => {
       console.log(response);
     } catch (error) {
       console.error("Error during sign in: ", error);
+      setError("Unable to sign in with provided credentials."); // Set error message
     }
   }
 
@@ -38,6 +40,7 @@ const SignIn = () => {
       ) : (
         <>
           <h2>Sign In</h2>
+          {error && <p className="error">{error}</p>} {/* Display error message */}
           <form className="home-form" onSubmit={handleSubmit}>
             <input
               type="text"
@@ -65,4 +68,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default LandingScreen;

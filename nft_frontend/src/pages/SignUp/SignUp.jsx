@@ -7,7 +7,6 @@ const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [walletAddress, setWalletAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
@@ -19,10 +18,9 @@ const SignUp = () => {
         username,
         email,
         password,
-        userprofile: { metamask_wallet_address: walletAddress },
       };
       console.log(data);
-      const response = await signup(username, password, data.userprofile);
+      const response = await signup(username, email, password);
       console.log(response);
 
       setMessage("Successfully created a new account! Redirecting...");
@@ -58,15 +56,6 @@ const SignUp = () => {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-
-          placeholder="Favorite Color"
-
-          value={walletAddress}
-          onChange={(e) => setWalletAddress(e.target.value)}
           required
         />
         <button type="submit">Sign Up</button>
