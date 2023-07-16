@@ -8,6 +8,7 @@ import {
   getCurrentWalletConnected,
 } from "../../utils/walletConnection";
 
+
 const Navbar = ({ onAboutOpen, wallet }) => {
   // const [walletAddress, setWallet] = useState("");
   const [walletStatus, setWalletStatus] = useState("");

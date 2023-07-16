@@ -3,7 +3,9 @@ import axios from "axios";
 import "./createnft.css";
 import ImageCapture from "./Button.jsx";
 import { AuthContext } from "../../auth/AuthContextComponent";
+
 import { contract, mintNFT } from "../../utils/NFTinterface";
+
 
 const CreateNft = ({ walletAddress }) => {
   const { user } = useContext(AuthContext);
