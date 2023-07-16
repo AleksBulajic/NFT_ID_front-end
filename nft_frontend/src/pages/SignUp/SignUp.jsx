@@ -62,7 +62,9 @@ const SignUp = () => {
         />
         <input
           type="text"
-          placeholder="favoriteColor"
+
+          placeholder="Favorite Color"
+
           value={walletAddress}
           onChange={(e) => setWalletAddress(e.target.value)}
           required

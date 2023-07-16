@@ -6,7 +6,8 @@ import { AuthContext } from "../../auth/AuthContextComponent";
 import {
   ConnectWallet,
   getCurrentWalletConnected,
-} from "../../web3/util/walletConnection";
+} from "../../utils/walletConnection";
+
 
 const Navbar = ({ onAboutOpen, wallet }) => {
   // const [walletAddress, setWallet] = useState("");
