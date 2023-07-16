@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, useContext } from "react";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -7,9 +7,9 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useTransition, animated } from "react-spring";
-import React, { useState, useContext } from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import { useTransition, animated } from 'react-spring';
+import React, { useState, useContext, useEffect} from "react";
+// import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+// import { useTransition, animated } from 'react-spring';
 import Navbar from "./components/NavBar/NavBar";
 import Home from "./pages/Home/Home";
 import ChatBox from "./components/ChatBox/ChatBox";
