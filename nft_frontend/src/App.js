@@ -35,7 +35,7 @@ const AnimatedRoutes = ({ children }) => {
 };
 
 const App = () => {
-  // const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const [walletAddress, setWalletAddress] = useState("")
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [showResults, setShowResults] = useState(false); 
 
@@ -68,14 +68,14 @@ const App = () => {
 
   return (
     <>{}
-        {isLoggedIn && <Navbar setShowResults={setShowResults} />}{" "}
+        {isLoggedIn && <Navbar setShowResults={setShowResults} wallet={{walletAddress,setWalletAddress }} />}{" "}
       {/* <-- Passed setShowResults here */}
       <AnimatedRoutes>
         <Route path="/" element={<LandingScreen />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<AboutModal />} />
-        <Route path="/nft" element={<NFT />} />
-        <Route path="/create" element={<CreateNft />} />
+        {/* <Route path="/nft" element={<NFT />} /> */}
+        <Route path="/create" element={<CreateNft walletAddress={walletAddress} />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/signup" element={<SignUp />} />
       </AnimatedRoutes>

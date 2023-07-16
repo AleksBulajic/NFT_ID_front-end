@@ -16,7 +16,7 @@ const signer = await provider.getSigner();
 
 // NFT contract
 export const contract = connectToContract(contractAddress, contractABI, signer);
-
+const event = await contract.queryFilter('Transfer')
 export const mintNFT = async (address, uri) => {
   const nft = await contract.safeMint(address, uri);
   return nft;

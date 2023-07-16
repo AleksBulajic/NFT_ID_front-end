@@ -8,8 +8,8 @@ import {
   getCurrentWalletConnected,
 } from "../../web3/util/walletConnection";
 
-const Navbar = ({ onAboutOpen }) => {
-  const [walletAddress, setWallet] = useState("");
+const Navbar = ({ onAboutOpen, wallet }) => {
+  // const [walletAddress, setWallet] = useState("");
   const [walletStatus, setWalletStatus] = useState("");
   const { handleLogout } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Navbar = ({ onAboutOpen }) => {
   const handleConnectWallet = async () => {
     const walletResponse = await ConnectWallet(); 
     setWalletStatus(walletResponse.status);
-    setWallet(walletResponse.address);
+    wallet.setWalletAddress(walletResponse.address);
   };
 
 
@@ -26,14 +26,14 @@ const Navbar = ({ onAboutOpen }) => {
   const connectWallet = async () => {
     const walletRespons = await ConnectWallet();
     setWalletStatus(walletRespons.status);
-    setWallet(walletRespons.address);
+    wallet.setWalletAddress(walletRespons.address);
   };
 
   useEffect(() => {
     const checkConnectWallet = async () => {
       const walletRespons = await getCurrentWalletConnected();
       setWalletStatus(walletRespons.status);
-      setWallet(walletRespons.address);
+      wallet.setWalletAddress(walletRespons.address);
     };
     checkConnectWallet();
   }, []);
@@ -95,10 +95,10 @@ const Navbar = ({ onAboutOpen }) => {
           <ul>
           <div id="container">
         <button id="walletButton" onClick={handleConnectWallet}>
-          {walletAddress.length > 0 ? (
+          {wallet.walletAddress.length > 0 ? (
             <>
-              Connected: {walletAddress.substring(0, 6)}...
-              {walletAddress.substring(38)}
+              Connected: {wallet.walletAddress.substring(0, 6)}...
+              {wallet.walletAddress.substring(38)}
             </>
           ) : (
             <span>🦊</span>
@@ -135,9 +135,9 @@ const Navbar = ({ onAboutOpen }) => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/nft" activeclassname="active-link" > 
+              {/* <NavLink to="/nft" activeclassname="active-link" > 
             MintNFT
-              </NavLink>
+              </NavLink> */}
             </li>
           </ul>
         </div>
