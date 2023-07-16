@@ -1,7 +1,7 @@
 // import { Alchemy, Network } from "alchemy-sdk";
 import { ethers } from "ethers";
-import contractABI from "../ABI'S/ABInft.js";
-import connectToContract from "../util/contractConnection.js";
+import contractABI from "../utils/ABInft";
+import connectToContract from "../utils/contratcConnection";
 
 // Optional config object, but defaults to the API key 'demo' and Network 'eth-mainnet'.
 // const alchemySettings = {

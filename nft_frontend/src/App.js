@@ -14,7 +14,7 @@ import Settings from "./pages/Settings/Settings";
 import LandingScreen from "./pages/LandingScreen/LandingScreen";
 import SignUp from "./pages/SignUp/SignUp";
 import AboutModal from "./components/About/AboutModal";
-import NFT  from "./components/NFT/NFT";
+// import NFT  from "./components/NFT/NFT";
 import { AuthContext } from "./auth/AuthContextComponent";
 
 
