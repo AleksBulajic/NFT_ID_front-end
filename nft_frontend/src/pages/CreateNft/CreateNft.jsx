@@ -40,14 +40,13 @@ const CreateNft = ({ walletAddress }) => {
 
     const formData = new FormData();
 
-    formData.append("firstName", firstName);
-    formData.append("lastName", lastName);
+    formData.append("first_name", firstName);
+    formData.append("last_name", lastName);
     formData.append("description", description);
-    // formData.append("nft_token_id", tokenId);
     formData.append("address", walletAddress);
     formData.append("country", country);
-    formData.append("dateOfBirth", dob);
-    formData.append("eyeColor", eyeColor);
+    formData.append("date_of_birth", dob);
+    formData.append("eye_color", eyeColor);
     formData.append("photo", photo);
     formData.append("user", user.id);
 
@@ -61,7 +60,6 @@ const CreateNft = ({ walletAddress }) => {
         {
           headers: {
             Authorization: `Token ${token}`,
-            "Content-Type": "multipart/form-data",
           },
         }
       );
