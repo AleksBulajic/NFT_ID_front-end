@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { useTransition, animated } from 'react-spring';
 import Navbar from "./components/NavBar/NavBar";
