@@ -10,9 +10,13 @@ import LandingScreen from "./pages/LandingScreen/LandingScreen";
 import SignUp from "./pages/SignUp/SignUp";
 import AboutModal from "./components/About/AboutModal";
 import ThemeContext from "./pages/Settings/ThemeContext";
+import { AuthContext } from "./auth/AuthContextComponent";
+
+
 
 const AnimatedRoutes = ({ children, themeColor }) => {
   const location = useLocation();
+
   const transitions = useTransition(location, {
     from: { opacity: 0, transform: "translate3d(100%,0,0)"  },
     enter: { opacity: 1, transform: "translate3d(0%,0,0)"  },
@@ -21,16 +25,34 @@ const AnimatedRoutes = ({ children, themeColor }) => {
 
   return transitions((props, item) => (
     <animated.div style={props}>
-      <Routes location={item}>
-        {children}
-      </Routes>
+      <Routes location={item}>{children}</Routes>
     </animated.div>
   ));
 };
 
 const App = () => {
+  const [walletAddress, setWalletAddress] = useState("")
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const [showResults, setShowResults] = useState(false); 
   const [isAboutModalOpen, setAboutModalOpen] = useState(false);
   const [themeColor, setThemeColor] = useState('#2f1c2c');
+
+  useEffect(() => {
+    const logged = localStorage.getItem("isloggedin");
+    setIsLoggedIn(logged);
+
+    const handleBeforeUnload = () => {
+      setIsLoggedIn(false);
+      localStorage.clear();
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [setIsLoggedIn]);
+
 
   const handleAboutOpen = () => {
     setAboutModalOpen(true);
@@ -41,21 +63,27 @@ const App = () => {
   };
 
   return (
-    <ThemeContext.Provider value={{ themeColor, setThemeColor }}>
+     <ThemeContext.Provider value={{ themeColor, setThemeColor }}>
       <div style={{ backgroundColor: themeColor, minHeight: '100vh' }}>
-      <Navbar onAboutOpen={handleAboutOpen} />
-      <AnimatedRoutes themeColor= {themeColor}>
-        <Route path="/" element={<LandingScreen />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/create" element={<CreateNft />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/signup" element={<SignUp />} />
-      </AnimatedRoutes>
-      <AboutModal isOpen={isAboutModalOpen} onRequestClose={handleAboutClose} />
-      <ChatBox />
+        {isLoggedIn && (
+          <Navbar
+            onAboutOpen={handleAboutOpen}
+            setShowResults={setShowResults}
+            wallet={{ walletAddress, setWalletAddress }}
+          />
+        )}
+        <AnimatedRoutes themeColor={themeColor}>
+          <Route path="/" element={<LandingScreen />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/create" element={<CreateNft walletAddress={walletAddress} />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/signup" element={<SignUp />} />
+        </AnimatedRoutes>
+        <AboutModal isOpen={isAboutModalOpen} onRequestClose={handleAboutClose} />
+        <ChatBox />
       </div>
     </ThemeContext.Provider>
-  )
+  );
 };
 
 export default App;

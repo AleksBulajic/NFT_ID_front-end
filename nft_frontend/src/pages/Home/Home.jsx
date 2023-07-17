@@ -6,6 +6,7 @@ import ThemeContext from "../Settings/ThemeContext";
 import "./home.css";
 
 
+
 const Home = () => {
   const [showIdCard, setShowIdCard] = useState(false);
   const { themeColor } = useContext(ThemeContext);

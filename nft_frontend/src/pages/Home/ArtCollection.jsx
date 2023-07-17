@@ -32,3 +32,8 @@ const ArtCollection = ({ arts }) => {
 };
 
 export default ArtCollection;
+
+
+
+
+
