@@ -4,8 +4,7 @@ import "./createnft.css";
 import ImageCapture from "./Button.jsx";
 import { AuthContext } from "../../auth/AuthContextComponent";
 
-import { contract, mintNFT } from "../../utils/NFTinterface";
-
+import { contract, mintNFT } from "../../web3/NFTinterface";
 
 const CreateNft = ({ walletAddress }) => {
   const { user } = useContext(AuthContext);
