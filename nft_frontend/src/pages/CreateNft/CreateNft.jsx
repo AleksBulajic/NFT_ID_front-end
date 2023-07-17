@@ -17,7 +17,7 @@ const CreateNft = ({ walletAddress }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [description, setDescription] = useState("");
-  const [tokenId, setTokenId] = useState("");
+  // const [tokenId, setTokenId] = useState("");
   // const [address, setAddress] = useState("");
   const [country, setCountry] = useState("");
   const [dob, setDob] = useState("");
@@ -43,7 +43,7 @@ const CreateNft = ({ walletAddress }) => {
     formData.append("firstName", firstName);
     formData.append("lastName", lastName);
     formData.append("description", description);
-    formData.append("nft_token_id", tokenId);
+    // formData.append("nft_token_id", tokenId);
     formData.append("address", walletAddress);
     formData.append("country", country);
     formData.append("dateOfBirth", dob);
@@ -111,13 +111,13 @@ const CreateNft = ({ walletAddress }) => {
           onChange={(e) => setDescription(e.target.value)}
           required
         ></textarea>
-        <input
+        {/* <input
           type="text"
           placeholder="NFT Token ID"
           value={tokenId}
           onChange={(e) => setTokenId(e.target.value)}
           required
-        />
+        /> */}
         <input
           type="text"
           placeholder="Address"
