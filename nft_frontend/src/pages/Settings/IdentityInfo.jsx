@@ -1,11 +1,13 @@
 // IdentityInfo.jsx
-import React from 'react';
+import React, { useContext} from 'react';
+import ThemeContext from './ThemeContext';
 import './settings.css';
 
 const IdentityInfo = ({ form, handleChange, handleSubmit }) => {
+    const { themeColor } = useContext(ThemeContext);
     return (
-        <div id='identity-info' className='id-container'>
-            <h2 className ="form-header">ID Information</h2>
+        <div id='identity-info' className='id-container' style={{ backgroundColor: themeColor }}>
+            <h2 className ="form-header">Update ID Information</h2>
             <form className="id-form" onSubmit={handleSubmit}>
                 <label>
                     First Name:
@@ -86,7 +88,7 @@ const IdentityInfo = ({ form, handleChange, handleSubmit }) => {
                         required
                     />
                 </label>
-                <button type="submit">Update ID Info</button>
+                <button className="settings-button" type="submit">Update ID Info</button>
             </form>
         </div>
    

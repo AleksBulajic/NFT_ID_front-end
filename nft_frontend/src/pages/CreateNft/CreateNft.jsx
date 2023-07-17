@@ -3,14 +3,16 @@ import axios from "axios";
 import "./createnft.css";
 import ImageCapture from "./Button.jsx";
 import { AuthContext } from "../../auth/AuthContextComponent";
+import ThemeContext from "../Settings/ThemeContext";
 const CreateNft = () => {
   const { user } = useContext(AuthContext);
+  const { themeColor } = useContext(ThemeContext);
 
   useEffect(() => {
     console.log(user);
   }, [user]);
 
-  // const [userId, setUserId] = useState("");
+  
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [description, setDescription] = useState("");
@@ -20,6 +22,7 @@ const CreateNft = () => {
   const [dob, setDob] = useState("");
   const [eyeColor, setEyeColor] = useState("");
   const [photo, setPhoto] = useState(null);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,16 +61,9 @@ const CreateNft = () => {
   };
 
   return (
-    <div className="create-nft-container">
+    <div className="create-nft-container" style={{ backgroundColor: themeColor }}>
       <h2>Create ID</h2>
       <form className="create-nft-form" onSubmit={handleSubmit}>
-        {/* <input
-          type="text"
-          placeholder="userId"
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
-          required
-        /> */}
         <input
           type="text"
           placeholder="First Name"

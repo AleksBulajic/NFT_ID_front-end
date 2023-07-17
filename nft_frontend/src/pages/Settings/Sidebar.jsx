@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext} from "react";
+import ThemeContext from "./ThemeContext";
 import "./settings.css";
 
 const Sidebar = ({ onLinkClick, DeleteAccount }) => {
+  const { themeColor } = useContext(ThemeContext);
   return (
-    <div className="settings-sidebar">
+    <div className="settings-sidebar" style={{ backgroundColor: themeColor }}>
       <h2 className="sidebar-header">Settings</h2>
       <ul>
         <li>

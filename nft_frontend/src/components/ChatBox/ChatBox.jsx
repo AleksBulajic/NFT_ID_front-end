@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import ThemeContext from "../../pages/Settings/ThemeContext";
 import "./chatbox.css";
 
 const ChatBox = () => {
@@ -7,6 +8,7 @@ const ChatBox = () => {
   const [chatMessages, setChatMessages] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const chatInputRef = useRef(null);
+  const { themeColor } = useContext(ThemeContext);
 
   const OPENAI_API_KEY = "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";
   const OPENAI_API_ENDPOINT =
@@ -99,7 +101,7 @@ const ChatBox = () => {
       </button>
       {isChatOpen && (
         <div className="chat-widget">
-          <div className="chat-container">
+          <div className="chat-container" style={{ backgroundColor: themeColor }}>
             <div className="chat-messages">
               {chatMessages.map((message, index) => (
                 <div className="chat-message-container" key={index}>

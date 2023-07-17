@@ -7,8 +7,8 @@ const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  const [setLoading] = useState(false);
+  const [setMessage] = useState("");
   const navigate = useNavigate();
 
   async function handleSubmit(e) {

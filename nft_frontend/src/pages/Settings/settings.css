@@ -2,7 +2,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    margin-top: 30px;
+    
     border-top: 1px solid rgb(200, 200, 200);
 }
 
@@ -54,6 +54,8 @@
     padding-bottom: 10px;
     width: 100%;
     background-color: #2f1c2c;
+    padding-top: 20px; 
+
 }
 
 
@@ -122,7 +124,8 @@
   .color-options {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    padding-top: 80px;
   }
   
   .color-option {
@@ -131,12 +134,13 @@
     margin: 0 10px;
     cursor: pointer;
     border: 2px solid transparent;
+    border-color: #312c2c;
     border-radius: 50%;
     transition: border-color 0.3s ease;
   }
   
   .color-option.selected {
-    border-color: #000;
+    border-color: #ffffff;
   }
   
   .change-theme-button {
@@ -153,4 +157,109 @@
   .change-theme-button:hover {
     background-color: #333;
   }
+  .delete-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding-top: 25px;
+    background-color: #2f1c2c;
+
+
+  }
   
+  .delete-account h2 {
+    text-align: center;
+    margin-bottom: 120px;
+  }
+  
+  .delete-account button {
+    margin-top: 20px;
+  }
+  .qa-container, .customize-container {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+  }
+  .settings-button {
+    margin-left: 10px;
+    padding: 6px 15px;
+    font-size: 16px;
+    color: #faf4f4;
+    background-color: #6a4c93;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .settings-button:hover {
+    background-color: #926dc6;
+  }
+
+
+  .user-form label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    font-size: 18px;
+    
+  }
+  
+  .user-form input[type="text"],
+  .user-form input[type="email"],
+  .user-form input[type="password"] {
+    width: 350px;
+    padding: 14px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 4px;
+    color: #faf4f4;
+    margin-top: 4px;
+  }
+  
+  .user-form input[type="text"]::placeholder,
+  .user-form input[type="email"]::placeholder,
+  .user-form input[type="password"]::placeholder {
+    color: 255, 255, 255, 0.2;
+  }
+  
+  .user-form input[type="text"]:focus,
+  .user-form input[type="email"]:focus,
+  .user-form input[type="password"]:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .user-form button[type="submit"] {
+    margin-top: 10px;
+  }
+  .id-form input[type="text"],
+.id-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 4px;
+  color: #faf4f4;
+  margin-top: 4px;
+}
+
+.id-form input[type="text"]::placeholder,
+.id-form textarea::placeholder {
+  color: #faf4f4;
+}
+
+.id-form input[type="text"]:focus,
+.id-form textarea:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.id-form button[type="submit"] {
+  margin-top: 10px;
+}
