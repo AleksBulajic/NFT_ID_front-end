@@ -30,7 +30,7 @@ const DeleteAccount = () => {
 
         localStorage.removeItem('user')
         localStorage.removeItem('token');
-        window.location.href = '/login'; 
+        window.location.href = '/'; 
       } catch (error) {
         console.error('Deletion failed:', error.response ? error.response.data : error.message);
       }
