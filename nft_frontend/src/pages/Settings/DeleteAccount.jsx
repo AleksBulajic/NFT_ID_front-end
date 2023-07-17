@@ -18,7 +18,7 @@ const DeleteAccount = () => {
 
       try {
         const response = await axios.delete(
-          `http://127.0.0.1:8000/api/users/${user.id}/`,
+          `http://127.0.0.1:8001/api/users/${user.id}/`,
           {
             headers: {
               Authorization: `Token ${token}`
