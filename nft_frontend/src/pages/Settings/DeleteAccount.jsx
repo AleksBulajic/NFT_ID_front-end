@@ -18,7 +18,7 @@ const DeleteAccount = () => {
 
       try {
         const response = await axios.delete(
-          `http://127.0.0.1:8001/api/users/${user.id}/`,
+          `https://project4nft-a334719477d5.herokuapp.com/api/users/${user.id}/`,
           {
             headers: {
               Authorization: `Token ${token}`
