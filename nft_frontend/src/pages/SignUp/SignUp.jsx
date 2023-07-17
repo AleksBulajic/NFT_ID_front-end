@@ -10,6 +10,7 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  
 
   async function handleSubmit(e) {
     e.preventDefault();
