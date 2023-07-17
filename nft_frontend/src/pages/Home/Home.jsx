@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useSpring, animated } from "react-spring";
 import IdCard from "../../components/IdCard/IdCard";
 import ArtCollection from "./ArtCollection";
+import ThemeContext from "../Settings/ThemeContext";
 import "./home.css";
-// import "../../App.css";
+
+
 
 const Home = () => {
   const [showIdCard, setShowIdCard] = useState(false);
+  const { themeColor } = useContext(ThemeContext);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -74,7 +77,7 @@ const Home = () => {
     },
   ];
   return (
-    <div className="home-container">
+    <div className="home-container" style={{ backgroundColor: themeColor }}>
       <animated.h1 style={titleAnimation} className='home-title'>
         Hello and Welcome!
       </animated.h1>

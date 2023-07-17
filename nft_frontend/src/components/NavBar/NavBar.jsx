@@ -3,6 +3,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { AuthContext } from "../../auth/AuthContextComponent";
+import  ThemeContext from '../../pages/Settings/ThemeContext';
 import {
   ConnectWallet,
   getCurrentWalletConnected,
@@ -12,6 +13,7 @@ const Navbar = ({ onAboutOpen, wallet }) => {
   // const [walletAddress, setWallet] = useState("");
   const [walletStatus, setWalletStatus] = useState("");
   const { handleLogout } = useContext(AuthContext);
+  const { themeColor } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const handleConnectWallet = async () => {
@@ -19,6 +21,7 @@ const Navbar = ({ onAboutOpen, wallet }) => {
     setWalletStatus(walletResponse.status);
     wallet.setWalletAddress(walletResponse.address);
   };
+
 
   const connectWallet = async () => {
     const walletRespons = await ConnectWallet();
@@ -35,32 +38,7 @@ const Navbar = ({ onAboutOpen, wallet }) => {
     checkConnectWallet();
   }, []);
 
-  const handleContactClick = () => {
-    const emailUrl = "mailto:devin.rodriguez.p8@gmail.com";
-    const emailWindow = window.open(emailUrl, "_blank");
 
-    if (emailWindow) {
-      emailWindow.opener = null;
-      // Add a close event to handle manual closing
-      const closeEmailWindow = () => {
-        emailWindow.close();
-      };
-
-      // Listen for clicks outside the email window to close it
-      window.addEventListener("click", closeEmailWindow);
-
-      // Optional: Add a close button inside the email window to close it
-      // emailWindow.document.write('<button onclick="window.close()">Close</button>');
-
-      // Optional: Listen for the beforeunload event to remove the event listener when the email window is closed
-      emailWindow.addEventListener("beforeunload", () => {
-        window.removeEventListener("click", closeEmailWindow);
-      });
-    } else {
-      // Unable to open the email client
-      // Handle this case, e.g., display an error message
-    }
-  };
   const handleAboutClick = (event) => {
     event.preventDefault(); // Prevent navigation
     onAboutOpen(); // Open the about modal
@@ -77,7 +55,7 @@ const Navbar = ({ onAboutOpen, wallet }) => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" style={{ backgroundColor: themeColor }}>
       <div className="navbar-brand">
         <button className="navbar-heading-button">
           <Link to="/home" className="navbar-heading-link">

@@ -17,11 +17,11 @@
   }
   
   .idCard img {
-    width: 50%; /* adjust this as needed */
+    width: 50%; 
     height: auto;
-    max-height: 150px; /* prevent image from becoming too tall */
-    object-fit: cover; /* ensures the aspect ratio of the image is maintained */
-    margin-right: 25px; /* space between image and details */
+    max-height: 150px; 
+    object-fit: cover; 
+    margin-right: 25px;
     margin-left:15px;
   }
   

@@ -3,16 +3,19 @@ import axios from "axios";
 import "./createnft.css";
 import ImageCapture from "./Button.jsx";
 import { AuthContext } from "../../auth/AuthContextComponent";
-
+import ThemeContext from "../Settings/ThemeContext";
 import { contract, mintNFT } from "../../web3/NFTinterface";
+
 
 const CreateNft = ({ walletAddress }) => {
   const { user } = useContext(AuthContext);
+  const { themeColor } = useContext(ThemeContext);
 
   useEffect(() => {
     console.log(user);
     // addSmartContractListener()
   }, [user]);
+
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -23,6 +26,7 @@ const CreateNft = ({ walletAddress }) => {
   const [dob, setDob] = useState("");
   const [eyeColor, setEyeColor] = useState("");
   const [photo, setPhoto] = useState(null);
+
 
   // TO DO await the transction to be over before saving ID
   // function addSmartContractListener() {
@@ -72,16 +76,9 @@ const CreateNft = ({ walletAddress }) => {
   };
 
   return (
-    <div className="create-nft-container">
+    <div className="create-nft-container" style={{ backgroundColor: themeColor }}>
       <h2>Create ID</h2>
       <form className="create-nft-form" onSubmit={handleSubmit}>
-        {/* <input
-          type="text"
-          placeholder="userId"
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
-          required
-        /> */}
         <input
           type="text"
           placeholder="First Name"

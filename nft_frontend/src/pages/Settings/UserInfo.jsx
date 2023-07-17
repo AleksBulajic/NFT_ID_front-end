@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext} from "react";
+import ThemeContext from "./ThemeContext";
 import './settings.css';
 
 const UserInfo = ({ form, handleChange, handleSubmit }) => {
+  const { themeColor } = useContext(ThemeContext);
   return (
-    <div id="user-info" className="user-container">
-      <h2 className ="form-header">User Information</h2>
+    <div id="user-info" className="user-container" style={{ backgroundColor: themeColor }}>
+      <h2 className ="form-header">Update User Information</h2>
       <form className="user-form" onSubmit={handleSubmit}>
         <label>
           Username:
@@ -36,7 +38,7 @@ const UserInfo = ({ form, handleChange, handleSubmit }) => {
             required
           />
         </label>
-        <button type="submit">Update User Info</button>
+        <button className="settings-button" type="submit">Update User Info</button>
       </form>
     </div>
   );

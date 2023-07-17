@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 120%;
 }
 
 .content-container {
@@ -38,11 +39,11 @@ grid-template-columns: 1fr;
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  -webkit-transform: skewY(-2deg);
-  -moz-transform: skewY(-2deg);
-  -ms-transform: skewY(-2deg);
-  -o-transform: skewY(-2deg);
-  transform: skewY(-2deg);
+  -webkit-transform: skewY(2deg);
+  -moz-transform: skewY(2deg);
+  -ms-transform: skewY(2deg);
+  -o-transform: skewY(2deg);
+  transform: skewY(2deg);
 }
 
 .art-item h2 {
@@ -53,20 +54,20 @@ grid-template-columns: 1fr;
   position: absolute;
   top: 100vh;
   width: 100%;
-  -webkit-transform: skewY(-2deg);
-  -moz-transform: skewY(-2deg);
-  -ms-transform: skewY(-2deg);
-  -o-transform: skewY(-2deg);
-  transform: skewY(-2deg);
+  -webkit-transform: skewY(2deg);
+  -moz-transform: skewY(2deg);
+  -ms-transform: skewY(2deg);
+  -o-transform: skewY(2deg);
+  transform: skewY(2deg);
 }
 .art-item video {
   position: relative;
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  -webkit-transform: skewY(-2deg);
-  -moz-transform: skewY(-2deg);
-  -ms-transform: skewY(-2deg);
-  -o-transform: skewY(-2deg);
-  transform: skewY(-2deg);
+  -webkit-transform: skewY(2deg);
+  -moz-transform: skewY(2deg);
+  -ms-transform: skewY(2deg);
+  -o-transform: skewY(2deg);
+  transform: skewY(2deg);
 }

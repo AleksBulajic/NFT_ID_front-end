@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import ThemeContext from './ThemeContext';
 import './settings.css';
 
-const CustomizeTheme = ({ onThemeChange }) => {
-  const colors = ['#2f1c2c', 'blue', 'green', 'yellow', 'red', 'pink', 'orange'];
+const CustomizeTheme = () => {
+  const { setThemeColor } = useContext(ThemeContext);
+  const colors = ['#2f1c2c', '#0030dd', '#175604', '#804900', '#4d0202', '#760174', '#010831'];
   const [selectedColor, setSelectedColor] = useState('');
+  const { themeColor } = useContext(ThemeContext);
+
+
+  
 
   const handleColorClick = (color) => {
     setSelectedColor(color);
@@ -11,13 +17,13 @@ const CustomizeTheme = ({ onThemeChange }) => {
 
   const handleThemeChange = () => {
     if (selectedColor) {
-      onThemeChange(selectedColor);
+      setThemeColor(selectedColor);
     }
   };
 
   return (
-    <div className="page-container">
-      <h1 className="page-title">Customize Theme</h1>
+    <div className="customize-container" style={{ backgroundColor: themeColor }}>
+      <h1 className="title">Customize Theme</h1>
       <div className="color-options">
         {colors.map((color, index) => (
           <div
@@ -28,7 +34,7 @@ const CustomizeTheme = ({ onThemeChange }) => {
           />
         ))}
       </div>
-      <button className="change-theme-button" onClick={handleThemeChange}>
+      <button className="settings-button" onClick={handleThemeChange}>
         Change Theme
       </button>
     </div>
