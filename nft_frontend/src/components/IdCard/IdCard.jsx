@@ -16,7 +16,7 @@ const IdCard = () => {
     const fetchIdentity = async () => {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8001/api/identity/`,
+          `https://project4nft-a334719477d5.herokuapp.com/api/identity/`,
           {
             headers: {
               Authorization: `Token ${token}`,

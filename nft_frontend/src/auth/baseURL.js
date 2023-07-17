@@ -4,7 +4,7 @@ import axios from "axios";
 export const LOCALSTORAGE_KEY = "token";
 
 // Create a re-usable axios instance with the base URL
-const baseURL = "http://127.0.0.1:8001/";
+const baseURL = "https://project4nft-a334719477d5.herokuapp.com/";
 const base = axios.create({
   baseURL,
 });

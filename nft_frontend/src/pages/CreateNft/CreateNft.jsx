@@ -55,7 +55,7 @@ const CreateNft = ({ walletAddress }) => {
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8001/identities/`,
+        `https://project4nft-a334719477d5.herokuapp.com/identities/`,
         formData,
 
         {
