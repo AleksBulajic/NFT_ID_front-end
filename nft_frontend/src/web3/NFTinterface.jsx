@@ -1,7 +1,7 @@
 // import { Alchemy, Network } from "alchemy-sdk";
 import { ethers } from "ethers";
-import contractABI from "../utils/ABInft";
-import connectToContract from "../utils/contratcConnection";
+import contractABI from "./ABInft";
+import connectToContract from "./contratcConnection";
 
 // Optional config object, but defaults to the API key 'demo' and Network 'eth-mainnet'.
 // const alchemySettings = {
@@ -16,7 +16,7 @@ const signer = await provider.getSigner();
 
 // NFT contract
 export const contract = connectToContract(contractAddress, contractABI, signer);
-const event = await contract.queryFilter('Transfer')
+const event = await contract.queryFilter("Transfer");
 export const mintNFT = async (address, uri) => {
   const nft = await contract.safeMint(address, uri);
   return nft;

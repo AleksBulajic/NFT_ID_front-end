@@ -4,7 +4,7 @@ const LOCALSTORAGE_KEY = 'token'
 
 // Create a re-useable axios object, with our API as the baseURL
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000/',
+  baseURL: 'https://project4nft-a334719477d5.herokuapp.com/',
   Authorization : `Token ${localStorage.getItem(LOCALSTORAGE_KEY)}`
 })
 

@@ -4,7 +4,8 @@ import "./createnft.css";
 import ImageCapture from "./Button.jsx";
 import { AuthContext } from "../../auth/AuthContextComponent";
 import ThemeContext from "../Settings/ThemeContext";
-import { contract, mintNFT } from "../../utils/NFTinterface";
+import { contract, mintNFT } from "../../web3/NFTinterface";
+
 
 const CreateNft = ({ walletAddress }) => {
   const { user } = useContext(AuthContext);
@@ -19,7 +20,7 @@ const CreateNft = ({ walletAddress }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [description, setDescription] = useState("");
-  const [tokenId, setTokenId] = useState("");
+  // const [tokenId, setTokenId] = useState("");
   // const [address, setAddress] = useState("");
   const [country, setCountry] = useState("");
   const [dob, setDob] = useState("");
@@ -43,14 +44,13 @@ const CreateNft = ({ walletAddress }) => {
 
     const formData = new FormData();
 
-    formData.append("firstName", firstName);
-    formData.append("lastName", lastName);
+    formData.append("first_name", firstName);
+    formData.append("last_name", lastName);
     formData.append("description", description);
-    formData.append("nft_token_id", tokenId);
     formData.append("address", walletAddress);
     formData.append("country", country);
-    formData.append("dateOfBirth", dob);
-    formData.append("eyeColor", eyeColor);
+    formData.append("date_of_birth", dob);
+    formData.append("eye_color", eyeColor);
     formData.append("photo", photo);
     formData.append("user", user.id);
 
@@ -58,13 +58,13 @@ const CreateNft = ({ walletAddress }) => {
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8001/identities/`,
+        `https://project4nft-a334719477d5.herokuapp.com/identities/`,
         formData,
-
+   
         {
           headers: {
             Authorization: `Token ${token}`,
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "multipart/form-data"
           },
         }
       );
@@ -107,13 +107,13 @@ const CreateNft = ({ walletAddress }) => {
           onChange={(e) => setDescription(e.target.value)}
           required
         ></textarea>
-        <input
+        {/* <input
           type="text"
           placeholder="NFT Token ID"
           value={tokenId}
           onChange={(e) => setTokenId(e.target.value)}
           required
-        />
+        /> */}
         <input
           type="text"
           placeholder="Address"
