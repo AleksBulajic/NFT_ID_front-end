@@ -5,6 +5,9 @@
     justify-content: center;
     height: 100vh;
     color: white;
+    background-image: url("../../../public/gradient-wireframe-terrain_1048-12051.avif");
+    background-size: cover;
+    background-position: center;
   }
   
   .home-form {
@@ -31,3 +34,5 @@
     font-weight: bold;
     text-align: center;
   }
+
+  /* https://img.freepik.com/free-vector/gradient-wireframe-terrain_1048-12051.jpg */

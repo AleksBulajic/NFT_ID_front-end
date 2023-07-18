@@ -5,6 +5,9 @@
     justify-content: center;
     height: 100vh;
     color: white;
+    background-image: url("../../../public/gradient-wireframe-terrain_1048-12051.avif");
+    background-size: cover;
+    background-position: center;
   }
   
   .signup-form {
