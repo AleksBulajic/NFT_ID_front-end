@@ -57,7 +57,7 @@ const Navbar = ({ onAboutOpen, wallet }) => {
   };
 
   return (
-    <nav className="navbar" style={{ backgroundColor: themeColor }}>
+    <nav className="navbar" style={themeColor.includes('.avif') || themeColor.includes('data:image/') || themeColor.includes('http') ? { backgroundImage: `url(${themeColor})` } : { backgroundColor: themeColor }}>
       <div className="navbar-brand">
         <button className="navbar-heading-button">
           <Link to="/home" className="navbar-heading-link">

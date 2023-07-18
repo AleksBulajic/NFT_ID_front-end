@@ -61,7 +61,7 @@ const Settings = () => {
   };
 
   return (
-    <div className="settings-container" style={{ backgroundColor: themeColor }}>
+    <div className="settings-container" style={themeColor.includes('data:image/') || themeColor.includes('http') ? { backgroundImage: `url(${themeColor})` } : { backgroundColor: themeColor }}>
       <Sidebar onLinkClick={handleSidebarLinkClick} />
       <div className="settings-content">
         {currentSection === "user-info" && (
