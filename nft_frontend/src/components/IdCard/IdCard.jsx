@@ -62,13 +62,15 @@ const IdCard = () => {
           <div className="id-card-content">
             <img
               src={identity.photo}
-              alt={`${identity.firstName} ${identity.lastName}`}
+              alt={`${identity.first_name} ${identity.last_name}`}
             />
+            <p>{identity.first_name}</p>
+            <p>{identity.last_name}</p>
             <p>{identity.description}</p>
             <p>{identity.address}</p>
             <p>{identity.country}</p>
-            <p>{identity.dateOfBirth}</p>
-            <p>{identity.eyeColor}</p>
+            <p>{identity.date_of_birth}</p>
+            <p>{identity.eye_color}</p>
           </div>
         </>
       )}
