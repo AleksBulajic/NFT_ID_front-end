@@ -73,7 +73,7 @@ const LandingScreen = () => {
             {/* Display success message */}
           </form>
           <span className="goTo">
-            Don't have an account? Click <Link to="/signup">here</Link> to sign
+            Don't have an account? Click <Link to="/signup" className="here">here</Link> to sign
             up instead.
           </span>
         </>
