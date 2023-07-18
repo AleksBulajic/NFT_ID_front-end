@@ -12,7 +12,7 @@ import {
 const Navbar = ({ onAboutOpen, wallet }) => {
   // const [walletAddress, setWallet] = useState("");
   const [walletStatus, setWalletStatus] = useState("");
-  const { handleLogout } = useContext(AuthContext);
+  const { handleLogout , setIsLoggedIn } = useContext(AuthContext);
   const { themeColor } = useContext(ThemeContext);
   const navigate = useNavigate();
 
@@ -47,6 +47,8 @@ const Navbar = ({ onAboutOpen, wallet }) => {
   const handleClickSignout = () => {
     handleLogout();
     console.log("Successfully logged out");
+    setIsLoggedIn(false); // Set isLoggedIn to false
+    localStorage.setItem("isloggedin", "false"); // Update the local storage value
     navigate("/");
     // Disconnect MetaMask wallet
     if (window.ethereum && window.ethereum.disconnect) {

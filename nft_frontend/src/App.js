@@ -12,14 +12,12 @@ import AboutModal from "./components/About/AboutModal";
 import ThemeContext from "./pages/Settings/ThemeContext";
 import { AuthContext } from "./auth/AuthContextComponent";
 
-
-
 const AnimatedRoutes = ({ children, themeColor }) => {
   const location = useLocation();
 
   const transitions = useTransition(location, {
-    from: { opacity: 0, transform: "translate3d(100%,0,0)"  },
-    enter: { opacity: 1, transform: "translate3d(0%,0,0)"  },
+    from: { opacity: 0, transform: "translate3d(100%,0,0)" },
+    enter: { opacity: 1, transform: "translate3d(0%,0,0)" },
     leave: { opacity: 0, transform: "translate3d(-50%,0,0)" },
   });
 
@@ -39,11 +37,10 @@ const App = () => {
 
   useEffect(() => {
     const logged = localStorage.getItem("isloggedin");
-    setIsLoggedIn(logged);
+    setIsLoggedIn(logged === "true");
 
     const handleBeforeUnload = () => {
-      setIsLoggedIn(false);
-      localStorage.clear();
+      localStorage.setItem("isloggedin", isLoggedIn);
     };
 
     window.addEventListener("beforeunload", handleBeforeUnload);
@@ -51,8 +48,7 @@ const App = () => {
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [setIsLoggedIn]);
-
+  }, [isLoggedIn, setIsLoggedIn]);
 
   const handleAboutOpen = () => {
     setAboutModalOpen(true);
@@ -63,7 +59,7 @@ const App = () => {
   };
 
   return (
-     <ThemeContext.Provider value={{ themeColor, setThemeColor }}>
+    <ThemeContext.Provider value={{ themeColor, setThemeColor }}>
       <div style={{ backgroundColor: themeColor, minHeight: '100vh' }}>
         {isLoggedIn && (
           <Navbar
