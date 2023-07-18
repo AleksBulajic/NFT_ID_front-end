@@ -76,7 +76,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
         </AnimatedRoutes>
         <AboutModal isOpen={isAboutModalOpen} onRequestClose={handleAboutClose} />
-        <ChatBox />
+        {isLoggedIn && <ChatBox />} {/* Render ChatBox only if the user is logged in */}
       </div>
     </ThemeContext.Provider>
   );
