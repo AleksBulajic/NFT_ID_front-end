@@ -25,3 +25,9 @@
   a {
     color: white;
   }
+  .success {
+    color: green;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+  }

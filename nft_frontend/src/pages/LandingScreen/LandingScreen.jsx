@@ -7,6 +7,7 @@ import { AuthContext } from "../../auth/AuthContextComponent";
 
 const LandingScreen = () => {
   const [showSignUp, setShowSignUp] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
   const [text, setText] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +21,10 @@ const LandingScreen = () => {
       console.log(response);
       setIsLoggedIn(true);
       setUser(response.user);
-      navigate("/home");
+      setTimeout(() => {
+        navigate("/home");
+      }, 1000);
+      setSuccessMessage("Successfully signed in!");
       console.log(response);
     } catch (error) {
       console.error("Error during sign in: ", error);
@@ -57,6 +61,7 @@ const LandingScreen = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button type="submit">Sign In</button>
+            {successMessage && <p className="success">{successMessage}</p>} {/* Display success message */}
           </form>
           <span className="goTo">
             Don't have an account? Click <Link to="/signup">here</Link> to sign
