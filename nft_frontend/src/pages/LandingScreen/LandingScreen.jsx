@@ -14,17 +14,23 @@ const LandingScreen = () => {
   const [error, setError] = useState(""); // New state for error message
   const { setIsLoggedIn, setUser } = useContext(AuthContext);
 
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem("isloggedin", "true");
+  };
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       const response = await signin(text, password);
       console.log(response);
-      setIsLoggedIn(true);
       setUser(response.user);
+
+      setSuccessMessage("Successfully signed in!");
       setTimeout(() => {
+        handleLogin(); // Call handleLogin when the user is signed in
         navigate("/home");
       }, 1000);
-      setSuccessMessage("Successfully signed in!");
       console.log(response);
     } catch (error) {
       console.error("Error during sign in: ", error);
