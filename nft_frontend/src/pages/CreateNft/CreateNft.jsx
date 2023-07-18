@@ -5,11 +5,13 @@ import ImageCapture from "./Button.jsx";
 import { AuthContext } from "../../auth/AuthContextComponent";
 import ThemeContext from "../Settings/ThemeContext";
 import { contract, mintNFT } from "../../web3/NFTinterface";
+import { useNavigate } from "react-router-dom";
 
 
 const CreateNft = ({ walletAddress }) => {
   const { user } = useContext(AuthContext);
   const { themeColor } = useContext(ThemeContext);
+  const navigate = useNavigate()
 
   useEffect(() => {
     console.log(user);
@@ -70,6 +72,9 @@ const CreateNft = ({ walletAddress }) => {
       );
       mint();
       console.log(response.data);
+      setTimeout(() => {
+        navigate("/home");
+      }, 2000);
     } catch (error) {
       console.error(error);
     }

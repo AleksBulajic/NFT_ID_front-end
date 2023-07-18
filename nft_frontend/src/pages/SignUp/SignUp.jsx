@@ -59,6 +59,7 @@ const SignUp = () => {
           required
         />
         <button type="submit">Sign Up</button>
+        {message && <div className="success-message">{message}</div>}
       </form>
       <div className="signin-text">
         Already have an account? Click <Link to="/">here</Link> to sign in.
