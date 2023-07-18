@@ -25,6 +25,7 @@ const LandingScreen = () => {
       const response = await signin(text, password);
       console.log(response);
       setUser(response.user);
+
       setSuccessMessage("Successfully signed in!");
       setTimeout(() => {
         handleLogin(); // Call handleLogin when the user is signed in
