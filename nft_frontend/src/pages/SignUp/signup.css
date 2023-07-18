@@ -1,33 +1,81 @@
+/* landingscreen.css */
+
 .signup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: white;
-    background-image: url("../../../public/gradient-wireframe-terrain_1048-12051.avif");
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .signup-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1rem;
-  }
-  
-  .signup-form input {
-    margin-bottom: 0.5rem;
-    text-align: center;
-    width: 300px; 
-    height: 40px; 
-    font-size: 16px; 
-  }
-  
-  .success-message {
-    color: green;
-    margin-top: 10px;
-    font-weight: bold;
-    text-align: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+  background-image: url("../../../public/gradient-wireframe-terrain_1048-12051.avif");
+  background-size: cover;
+  background-position: center;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.signup-form input {
+  margin-bottom: 0.5rem;
+  text-align: center;
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: border-color 0.3s ease;
+}
+
+.signup-form input:focus {
+  outline: none;
+  border-color: #6c63ff;
+}
+
+.signup-form button {
+  margin-top: 1rem;
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  color: white;
+  background-color: #6c63ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: #514bc1;
+}
+
+.success-message {
+  color: green;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.signin-text {
+  margin-top: 1rem;
+  font-size: 14px;
+}
+
+.signin-text a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+
+.signin-text a:hover {
+  text-decoration: underline;
+}
+.logo {
+  max-width: 200px;
+  height: auto; 
+  display: block;
+  margin: 0 auto 20px; 
+}

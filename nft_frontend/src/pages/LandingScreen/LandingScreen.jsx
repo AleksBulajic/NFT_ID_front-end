@@ -49,8 +49,10 @@ const LandingScreen = () => {
         <SignUp handleSignUpClick={handleSignUpClick} />
       ) : (
         <>
+          <img src="./logo2.png" alt="Logo" className="logo" />
           <h2>Sign In</h2>
-          {error && <p className="error">{error}</p>} {/* Display error message */}
+          {error && <p className="error">{error}</p>}{" "}
+          {/* Display error message */}
           <form className="home-form" onSubmit={handleSubmit}>
             <input
               type="text"
@@ -66,8 +68,9 @@ const LandingScreen = () => {
               required
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">Sign In</button>
-            {successMessage && <p className="success">{successMessage}</p>} {/* Display success message */}
+            <button type="submit" className='singn-in'>Sign In</button>
+            {successMessage && <p className="success">{successMessage}</p>}{" "}
+            {/* Display success message */}
           </form>
           <span className="goTo">
             Don't have an account? Click <Link to="/signup">here</Link> to sign
