@@ -61,7 +61,7 @@ const Navbar = ({ onAboutOpen, wallet }) => {
       <div className="navbar-brand">
         <button className="navbar-heading-button">
           <Link to="/home" className="navbar-heading-link">
-            NFT App
+          <img src="./logo3.png" alt="Logo" className="logo" />
           </Link>
         </button>
       </div>

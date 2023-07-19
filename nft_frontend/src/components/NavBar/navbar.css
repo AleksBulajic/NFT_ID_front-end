@@ -83,4 +83,7 @@
   .navbar-links a.active-link {
     color: #3a2e2e; 
   }
+  .logo{
+    width: fit-content;
+  }
   
