@@ -5,7 +5,7 @@ import './settings.css';
 const UserInfo = ({ form, handleChange, handleSubmit }) => {
   const { themeColor } = useContext(ThemeContext);
   return (
-    <div id="user-info" className="user-container" style={{ backgroundColor: themeColor }}>
+    <div id="user-info" className="user-container" style={themeColor.includes('.avif') || themeColor.includes('data:image/') || themeColor.includes('http') ? { backgroundImage: `url(${themeColor})` } : { backgroundColor: themeColor }}>
       <h2 className ="form-header">Update User Information</h2>
       <form className="user-form" onSubmit={handleSubmit}>
         <label>

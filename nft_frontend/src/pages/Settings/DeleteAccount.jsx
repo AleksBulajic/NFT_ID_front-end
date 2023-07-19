@@ -38,7 +38,7 @@ const DeleteAccount = () => {
   };
 
   return (
-    <div className ="delete-account" style={{ backgroundColor: themeColor }}>
+    <div className ="delete-account" style={themeColor.includes('.avif') || themeColor.includes('data:image/') || themeColor.includes('http') ? { backgroundImage: `url(${themeColor})` } : { backgroundColor: themeColor }}>
       <h2>Delete Account</h2>
       <button className="settings-button" onClick={handleDeleteAccount}>Delete Account</button>
     </div>

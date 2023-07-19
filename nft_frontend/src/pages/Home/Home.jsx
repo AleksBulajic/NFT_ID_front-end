@@ -3,6 +3,8 @@ import { useSpring, animated } from "react-spring";
 import IdCard from "../../components/IdCard/IdCard";
 import ArtCollection from "./ArtCollection";
 import ThemeContext from "../Settings/ThemeContext";
+import Particles from "react-tsparticles";
+import particleConfig from "./particlesConfig";
 import "./home.css";
 
 
@@ -18,19 +20,7 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const titleAnimation = useSpring({
-    from: { transform: "translateX(100%)", opacity: 0 },
-    to: async (next) => {
-      if (showIdCard) {
-        await next({ transform: "translateX(0)", opacity: 0 });
-      } else {
-        await next({ transform: "translateX(0)", opacity: 1 });
-        await new Promise((resolve) => setTimeout(resolve, 3000));
-        await next({ transform: "translateX(-100%)", opacity: 0 });
-      }
-    },
-    config: { duration: 1000 },
-  });
+
 
   const idCardAnimation = useSpring({
     from: { transform: "scale(0)" },
@@ -77,10 +67,8 @@ const Home = () => {
     },
   ];
   return (
-    <div className="home-container" style={{ backgroundColor: themeColor }}>
-      <animated.h1 style={titleAnimation} className='home-title'>
-        Hello and Welcome!
-      </animated.h1>
+    <div className="home-container" style={themeColor.includes('.avif') || themeColor.includes('data:image/') || themeColor.includes('http') ? { backgroundImage: `url(${themeColor})` } : { backgroundColor: themeColor }}>
+      <Particles params={particleConfig} />
       <div className="content-container">
         {showIdCard && (
           <animated.div style={idCardAnimation}>
@@ -88,12 +76,12 @@ const Home = () => {
           </animated.div>
         )}
       </div>
+
       <div className="art-collection-wrapper">
         <ArtCollection arts={arts} />
       </div>
     </div>
   );
 };
-
 
 export default Home;

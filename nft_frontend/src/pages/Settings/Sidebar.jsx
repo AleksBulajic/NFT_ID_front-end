@@ -5,7 +5,7 @@ import "./settings.css";
 const Sidebar = ({ onLinkClick, DeleteAccount }) => {
   const { themeColor } = useContext(ThemeContext);
   return (
-    <div className="settings-sidebar" style={{ backgroundColor: themeColor }}>
+    <div className="settings-sidebar" style={themeColor.includes('.avif') || themeColor.includes('data:image/') || themeColor.includes('http') ? { backgroundImage: `url(${themeColor})` } : { backgroundColor: themeColor }}>
       <h2 className="sidebar-header">Settings</h2>
       <ul>
         <li>

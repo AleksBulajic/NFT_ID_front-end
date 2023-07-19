@@ -7,7 +7,7 @@ const QandA= () => {
   const { themeColor } = useContext(ThemeContext);
 
   return (
-    <div className = "qa-container" style={{ backgroundColor: themeColor }}>
+    <div className = "qa-container" style={themeColor.includes('.avif') || themeColor.includes('data:image/') || themeColor.includes('http') ? { backgroundImage: `url(${themeColor})` } : { backgroundColor: themeColor }}>
         <h1 className = "title">Q&A</h1>
     </div> 
   )
