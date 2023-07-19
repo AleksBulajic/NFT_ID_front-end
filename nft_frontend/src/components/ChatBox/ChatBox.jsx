@@ -10,7 +10,8 @@ const ChatBox = () => {
   const chatInputRef = useRef(null);
   const { themeColor } = useContext(ThemeContext);
 
-  const OPENAI_API_KEY = "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";
+  const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
+
   const OPENAI_API_ENDPOINT =
     "https://api.openai.com/v1/engines/text-davinci-003/completions";
 
