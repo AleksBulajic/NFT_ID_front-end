@@ -18,7 +18,9 @@
 
 - Solidity
 
-- Ethers 
+- Ethers
+
+- Cors
 
 ### Features 
 
@@ -34,9 +36,27 @@
 
 ### Links and Images 
 
-- [Notion-Board](https://www.notion.so/GA-project-4-1fe25414e4624c3c9c74f2c6cd844dbb)
+- ![Notion-Board](https://www.notion.so/GA-project-4-1fe25414e4624c3c9c74f2c6cd844dbb)
 
-- [Deployed-Site]()
+- ![Deployed-Site](https://calm-churros-9f4679.netlify.app/)
+
+- ![Signin Page](https://i.imgur.com/zZ0sERI.png)
+
+- ![Signup Page](https://i.imgur.com/5uTiO0W.png)
+
+
+### Team Roles 
+
+- Aleks (Team Lead): Frontend/Backend
+
+- Devin: FrontEnd/Backend
+
+- Jamari: FrontEnd 
+
+- Darius: FrontEnd 
+
+### Models 
+
 
 ### User Stories 
 
