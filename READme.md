@@ -1,8 +1,8 @@
-# NFT APP
+# IdentityLock
 
 ### App Description 
 
-- What if we could create unique identities using NFTs? NFTApp does exactly that by leveraging web3 technologies and using blockchain technology thus giving each user their own unique ID which only they have access to. 
+- What if we could create unique identities using NFTs? IdentityLock does exactly that by leveraging web3 technologies and using blockchain technology thus giving each user their own unique ID which only they have access to. 
 
 ### Technologies Used 
 
@@ -18,7 +18,9 @@
 
 - Solidity
 
-- Ethers 
+- Ethers
+
+- Cors
 
 ### Features 
 
@@ -34,9 +36,27 @@
 
 ### Links and Images 
 
-- [Notion-Board](https://www.notion.so/GA-project-4-1fe25414e4624c3c9c74f2c6cd844dbb)
+- ![Notion-Board](https://www.notion.so/GA-project-4-1fe25414e4624c3c9c74f2c6cd844dbb)
 
-- [Deployed-Site]()
+- ![Deployed-Site](https://calm-churros-9f4679.netlify.app/)
+
+- ![Signin Page](https://i.imgur.com/ro2iCf2.png)
+
+- ![Signup Page](https://i.imgur.com/5uTiO0W.png)
+
+
+### Team Roles 
+
+- Aleks (Team Lead): Frontend/Backend
+
+- Devin: FrontEnd/Backend
+
+- Jamari: FrontEnd 
+
+- Darius: FrontEnd 
+
+### Models 
+
 
 ### User Stories 
 

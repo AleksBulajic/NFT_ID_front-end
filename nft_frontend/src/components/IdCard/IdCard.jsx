@@ -1,16 +1,30 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useSpring, animated } from "react-spring";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./idcard.css";
 import { AuthContext } from "../../auth/AuthContextComponent";
+import VanillaTilt from 'vanilla-tilt';
+
 
 const IdCard = () => {
   const { user } = useContext(AuthContext);
   const { id } = useParams();
-
+  const tiltRef = useRef();
   const [identity, setIdentity] = useState(null);
   const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    const tiltNode = tiltRef.current;
+      VanillaTilt.init(tiltNode, {
+      max: 30,
+      speed: 200,
+      glare: true,
+      "max-glare": 0.5,
+    });
+    return () => tiltNode.vanillaTilt.destroy();
+  }, []);
+
+
   useEffect(() => {
     console.log("user.id:", user.id);
     const fetchIdentity = async () => {
@@ -43,38 +57,31 @@ const IdCard = () => {
     fetchIdentity();
   }, [id]);
 
-  const [props, set] = useSpring(() => ({
-    scale: 1,
-  }));
-
+ 
   return (
-    <animated.div
-      className="idCard"
-      style={props}
-      onMouseEnter={() => set({ scale: 1.2 })}
-      onMouseLeave={() => set({ scale: 1 })}
+    <div
+    ref={tiltRef}
+      className="idCard rgb"
     >
       {identity && (
         <>
-          <h2>
-            {identity.firstName} {identity.lastName}
-          </h2>
+          
           <div className="id-card-content">
             <img
+            className="idCard-image"
               src={identity.photo}
               alt={`${identity.first_name} ${identity.last_name}`}
             />
-            <p>{identity.first_name}</p>
-            <p>{identity.last_name}</p>
-            <p>{identity.description}</p>
-            <p>{identity.address}</p>
-            <p>{identity.country}</p>
-            <p>{identity.date_of_birth}</p>
-            <p>{identity.eye_color}</p>
+            <div className="idCard-content"></div>
+            <p className="idCard-name">{`${identity.first_name} ${identity.last_name}`}</p>
+            <p className="idCard-description">{identity.description}</p>
+            <p className="idCard-country">{identity.country}</p>
+            <p className="idCard-dob">{identity.date_of_birth}</p>
+            <p className="idCard-eyeColor">{identity.eye_color}</p>
           </div>
         </>
       )}
-    </animated.div>
+    </div>
   );
 };
 
