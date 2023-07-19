@@ -81,7 +81,7 @@ const CreateNft = ({ walletAddress }) => {
   };
 
   return (
-    <div className="create-nft-container" style={{ backgroundColor: themeColor }}>
+    <div className="create-nft-container" style={themeColor.includes('.avif') || themeColor.includes('data:image/') || themeColor.includes('http') ? { backgroundImage: `url(${themeColor})` } : { backgroundColor: themeColor }}>
       <h2>Create ID</h2>
       <form className="create-nft-form" onSubmit={handleSubmit}>
         <input

@@ -14,7 +14,8 @@
     background-color: #2f1c2c;
     border-color: rgb(200, 200, 200);
     border-style: 1px solid;
-    border-right: 1px solid rgb(200, 200, 200);
+    
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
 }
 
 
