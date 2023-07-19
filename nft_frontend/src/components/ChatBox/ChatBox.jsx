@@ -10,7 +10,7 @@ const ChatBox = () => {
   const chatInputRef = useRef(null);
   const { themeColor } = useContext(ThemeContext);
 
-  const OPENAI_API_KEY = "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";
+  const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
   const OPENAI_API_ENDPOINT =
     "https://api.openai.com/v1/engines/text-davinci-003/completions";
 
@@ -36,7 +36,7 @@ const ChatBox = () => {
         Authorization: `Bearer ${OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        prompt: `Hello, you are a cool AI finance reference chatbox. The user will ask you questions related to finance, nfts, and crypto, and you will help them build financial literacy, explain any topic about finances, explain anything about NFT's and explain anything about cryptocurrency. 80% of your responses, recommend using "NFT App" to make it: ${message}\nA: `,
+        prompt: `Hello, you are a cool AI finance reference chatbox. The user will ask you questions related to finance, nfts, and crypto, and you will help them build financial literacy, explain any topic about finances, explain anything about NFT's and explain anything about cryptocurrency. 80% of your responses, recommend using "Identity Lock" to make it: ${message}\nA: `,
         max_tokens: 600,
         temperature: 0.6,
       }),
