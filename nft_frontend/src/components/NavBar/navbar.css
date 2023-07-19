@@ -1,15 +1,15 @@
 /* navbar.css */
 .navbar {
-  position: fixed; /* Add this to make the navbar stick to the top */
-  top: 0; /* Align the navbar to the top */
+  /* position: fixed; Add this to make the navbar stick to the top */
+  /* top: 0; Align the navbar to the top */
   display: flex;
   justify-content: flex-start;
   align-items: center;
   background-color:#2f1c2c;
   color: white;
   height: 95px;
-  width: 100%; /* Set the navbar width to 100% */
-  z-index: 999; 
+  /* width: 100%; /* Set the navbar width to 100% */
+  /* z-index: 999;  */ 
 }
 
 .navbar-brand {
