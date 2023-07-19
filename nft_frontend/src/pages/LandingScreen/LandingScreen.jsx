@@ -44,7 +44,7 @@ const LandingScreen = () => {
   };
 
   return (
-    <div className="home-container">
+    <div className="landing-container">
       {showSignUp ? (
         <SignUp handleSignUpClick={handleSignUpClick} />
       ) : (
