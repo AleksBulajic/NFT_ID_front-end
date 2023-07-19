@@ -49,28 +49,26 @@ const IdCard = () => {
 
   return (
     <animated.div
-      className="idCard"
+      className="idCard rgb"
       style={props}
       onMouseEnter={() => set({ scale: 1.2 })}
       onMouseLeave={() => set({ scale: 1 })}
     >
       {identity && (
         <>
-          <h2>
-            {identity.firstName} {identity.lastName}
-          </h2>
+          
           <div className="id-card-content">
             <img
+            className="idCard-image"
               src={identity.photo}
               alt={`${identity.first_name} ${identity.last_name}`}
             />
-            <p>{identity.first_name}</p>
-            <p>{identity.last_name}</p>
-            <p>{identity.description}</p>
-            <p>{identity.address}</p>
-            <p>{identity.country}</p>
-            <p>{identity.date_of_birth}</p>
-            <p>{identity.eye_color}</p>
+            <div className="idCard-content"></div>
+            <p className="idCard-name">{`${identity.first_name} ${identity.last_name}`}</p>
+            <p className="idCard-description">{identity.description}</p>
+            <p className="idCard-country">{identity.country}</p>
+            <p className="idCard-dob">{identity.date_of_birth}</p>
+            <p className="idCard-eyeColor">{identity.eye_color}</p>
           </div>
         </>
       )}
