@@ -1,3 +1,7 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
 .idCard {
     display: grid;
     grid-template-columns: 300px;
@@ -14,7 +18,7 @@
     transform-style: preserve-3d;
     transform: perspective(1000px);
     width: 300px;
-    height: 470px;
+    height: 500px;
     padding: 20px;
     position: relative;
   }
@@ -26,40 +30,48 @@
 
 .idCard .idCard-image {
   position: absolute;
-  top: 45px;
+  /* top: 45px; */
   right: 35px;
   height: 170px;
+  width: -webkit-fill-available;
+  border-radius: 6px;
 }
 
 .idCard .idCard-content {
   position: absolute;
-  left: 10px;
-  top: 40%;
+  top: 184px;
+  width: 100%;
 }
 
 .idCard .idCard-name {
-  font-size: 1.2em;
+  font-size: 21px;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
 .idCard .idCard-description {
-  font-size: 1em;
-  margin-top: 20px;
+  color: #b4b4b4;
+  font-size: 1.2em;
+  margin-top: 16px;
+  padding-right: 42px;
 }
 
 .idCard .idCard-country {
-  font-size: 1em;
-  margin-top: 40px;
+  color: #b4b4b4;
+  font-size: 1.2em;
+  margin-top: 16px;
 }
 
 .idCard .idCard-dob {
-  font-size: 1em;
-  margin-top: 60px;
+  color: #b4b4b4;
+  font-size: 1.2em;
+  margin-top: 16px;
 }
 
 .idCard .idCard-eyeColor {
-  font-size: 1em;
-  margin-top: 80px;
+  color: #b4b4b4;
+  font-size: 1.2em;
+  margin-top: 16px;
 }
 .rgb::after {
   content:"";

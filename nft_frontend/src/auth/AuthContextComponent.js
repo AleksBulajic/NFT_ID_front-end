@@ -17,10 +17,15 @@ export default function AuthContextComponent({ children }) {
   });
 
   // Update the user data in local storage whenever the user state changes
-  useEffect(() => {
-    if (!localStorage.getItem("user")) {
-      localStorage.setItem("user", JSON.stringify(user));
+  useState(() => {
+    const userLocalStorage = localStorage.getItem('user');
+    if (userLocalStorage) {
+        setUser(JSON.parse(userLocalStorage));
     }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(user));
   }, [user]);
 
   // Function to handle user logout
