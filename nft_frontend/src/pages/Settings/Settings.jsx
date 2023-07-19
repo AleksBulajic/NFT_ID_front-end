@@ -18,14 +18,13 @@ const Settings = () => {
   });
 
   const [idForm, setIdForm] = useState({
-    firstName: "",
-    lastName: "",
-    photo: "",
+    first_name: "",
+    last_name: "",
     description: "",
     address: "",
     country: "",
-    dateOfBirth: "",
-    eyeColor: "",
+    date_of_birth: "",
+    eye_color: "",
   });
 
   const handleUserFormChange = (e) => {
@@ -87,4 +86,3 @@ const Settings = () => {
 };
 
 export default Settings;
-
