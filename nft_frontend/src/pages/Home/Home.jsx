@@ -47,7 +47,7 @@ const Home = () => {
     },
     { 
       name: "Art 2", 
-      image: "https://dsqqu7oxq6o1v.cloudfront.net/motion-array-1412093-dC7PzCV7Xs-high.mp4", 
+      image: "https://cdn.pixabay.com/vimeo/365890980/abstract-27726.mp4?width=640&hash=d45867f83b48e0a39f8102d2a97e668e658f6f6f", 
       type: "video"
     },
     { 
@@ -62,7 +62,7 @@ const Home = () => {
     },
     { 
       name: "Art 5", 
-      image: "https://dsqqu7oxq6o1v.cloudfront.net/motion-array-1057998-a17OliJ2Zf-high.mp4", 
+      image: "https://cdn.pixabay.com/vimeo/217588604/asteroids-9135.mp4?width=640&hash=589dcecb1ab8354c6dbaa6f1b63e25f7c1e35794", 
       type: "video"
     },
     { 
@@ -72,7 +72,7 @@ const Home = () => {
     },
     { 
       name: "Art 7", 
-      image: "https://dsqqu7oxq6o1v.cloudfront.net/motion-array-1296625-Astronaut_floats_03-high.mp4", 
+      image: "https://cdn.pixabay.com/vimeo/683077197/space-109043.mp4?width=1280&hash=e856d7f7a43afea66816eb1eb6e1862281bb354d", 
       type: "video" 
     },
   ];
