@@ -136,7 +136,7 @@ const IdentityInfo = ({ form, handleChange }) => {
         <label>
           Date of Birth:
           <input
-            type="text"
+            type="date"
             name="date_of_birth"
             value={form.date_of_birth}
             onChange={handleChange}

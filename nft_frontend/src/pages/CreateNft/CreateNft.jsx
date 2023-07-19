@@ -134,7 +134,7 @@ const CreateNft = ({ walletAddress }) => {
           required
         />
         <input
-          type="text"
+          type="date"
           placeholder="Date of Birth"
           value={dob}
           onChange={(e) => setDob(e.target.value)}
