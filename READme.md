@@ -1,8 +1,8 @@
-# NFT APP
+# IdentityLock
 
 ### App Description 
 
-- What if we could create unique identities using NFTs? NFTApp does exactly that by leveraging web3 technologies and using blockchain technology thus giving each user their own unique ID which only they have access to. 
+- What if we could create unique identities using NFTs? IdentityLock does exactly that by leveraging web3 technologies and using blockchain technology thus giving each user their own unique ID which only they have access to. 
 
 ### Technologies Used 
 
