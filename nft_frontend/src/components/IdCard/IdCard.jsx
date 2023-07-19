@@ -1,16 +1,30 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useSpring, animated } from "react-spring";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./idcard.css";
 import { AuthContext } from "../../auth/AuthContextComponent";
+import VanillaTilt from 'vanilla-tilt';
+
 
 const IdCard = () => {
   const { user } = useContext(AuthContext);
   const { id } = useParams();
-
+  const tiltRef = useRef();
   const [identity, setIdentity] = useState(null);
   const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    const tiltNode = tiltRef.current;
+      VanillaTilt.init(tiltNode, {
+      max: 30,
+      speed: 200,
+      glare: true,
+      "max-glare": 0.5,
+    });
+    return () => tiltNode.vanillaTilt.destroy();
+  }, []);
+
+
   useEffect(() => {
     console.log("user.id:", user.id);
     const fetchIdentity = async () => {
@@ -43,16 +57,11 @@ const IdCard = () => {
     fetchIdentity();
   }, [id]);
 
-  const [props, set] = useSpring(() => ({
-    scale: 1,
-  }));
-
+ 
   return (
-    <animated.div
+    <div
+    ref={tiltRef}
       className="idCard rgb"
-      style={props}
-      onMouseEnter={() => set({ scale: 1.2 })}
-      onMouseLeave={() => set({ scale: 1 })}
     >
       {identity && (
         <>
@@ -72,7 +81,7 @@ const IdCard = () => {
           </div>
         </>
       )}
-    </animated.div>
+    </div>
   );
 };
 
