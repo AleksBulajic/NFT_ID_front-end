@@ -36,11 +36,11 @@
 
 ### Links and Images 
 
-- [1]: https://www.notion.so/GA-project-4-1fe25414e4624c3c9c74f2c6cd844dbb
+- [Notion-Board](https://www.notion.so/GA-project-4-1fe25414e4624c3c9c74f2c6cd844dbb)
 
-- [2]: https://calm-churros-9f4679.netlify.app/
+- [Deployed-App](https://calm-churros-9f4679.netlify.app/)
 
-- [3]: https://github.com/AleksBulajic/NFT_project_4_back-end
+- [Backend-Repo](https://github.com/AleksBulajic/NFT_project_4_back-end)
   
 - ![Signin Page](https://i.imgur.com/ro2iCf2.png)
 
