@@ -26,7 +26,7 @@
 
 - AI Chatbox: Chat with our AI FinTech Guru for instant advice and support.
 
-- Create NFT: Use your camera or upload a file to create a new NFT.
+- Creation of a unique NFT-based ID.
 
 - User Settings: Manage your user and ID information.
 
