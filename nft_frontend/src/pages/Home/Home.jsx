@@ -66,11 +66,6 @@ const Home = () => {
       type: "video"
     },
     { 
-      name: "Art 6", 
-      image: "https://w0.peakpx.com/wallpaper/766/987/HD-wallpaper-spiderman-miles-lost-in-space-spiderman-into-the-spider-verse-spiderman-superheroes-artwork-artist-digital-art-deviantart.jpg", 
-      type: "image" 
-    },
-    { 
       name: "Art 7", 
       image: "https://cdn.pixabay.com/vimeo/683077197/space-109043.mp4?width=1280&hash=e856d7f7a43afea66816eb1eb6e1862281bb354d", 
       type: "video" 
