@@ -11,7 +11,8 @@ export async function signin(username, password) {
 
   // Put the token in local storage for 30 minutes (duration set on the server)
   localStorage.setItem(LOCALSTORAGE_KEY, response.data.token);
-
+  localStorage.setItem("user", JSON.stringify(response.data.user));
+  
   return response.data;
 }
 

@@ -72,15 +72,17 @@ const IdCard = () => {
               src={identity.photo}
               alt={`${identity.first_name} ${identity.last_name}`}
             />
-            <div className="idCard-content"></div>
-            <p className="idCard-name">{`${identity.first_name} ${identity.last_name}`}</p>
-            <p className="idCard-description">{identity.description}</p>
-            <p className="idCard-country">{identity.country}</p>
-            <p className="idCard-dob">{identity.date_of_birth}</p>
-            <p className="idCard-eyeColor">{identity.eye_color}</p>
+            <div className="idCard-content">
+              <p className="idCard-name">{`${identity.first_name} ${identity.last_name}`}</p>
+              <p className="idCard-dob">{identity.date_of_birth}</p>
+              <p className="idCard-country">{identity.country}</p>
+              <p className="idCard-eyeColor">{identity.eye_color}</p>
+              <p className="idCard-description">{identity.description}</p>
+            </div>
           </div>
         </>
-      )}
+      )
+      }
     </div>
   );
 };
