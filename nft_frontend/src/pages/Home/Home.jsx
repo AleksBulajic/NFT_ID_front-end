@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIdCard(true);
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
