@@ -274,7 +274,7 @@
 
 .title {
   text-align: center;
-  color: #333;
+  color: #FFFFFF;
   margin-bottom: 20px;
 }
 
@@ -293,7 +293,7 @@
 
 .page-title {
   text-align: center;
-  color: #333;
+  color: #FFFFFF;
   margin-bottom: 20px;
   font-size: 30px;
 }
@@ -301,13 +301,13 @@
 .questions {
   font-size: 1.2em;
   font-weight: bold;
-  color: #333;
+  color: #FFFFFF;
   margin-top: 20px;
 }
 
 .answers {
   font-size: 1em;
-  color: #555;
+  color: #FFFFFF;
   line-height: 1.5em;
   margin-bottom: 20px;
 }
