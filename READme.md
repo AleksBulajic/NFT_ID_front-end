@@ -44,7 +44,6 @@
   
 - ![Signin Page](https://i.imgur.com/ro2iCf2.png)
 
-- ![Signup Page](https://i.imgur.com/5uTiO0W.png)
 
 
 ### Team Roles 
